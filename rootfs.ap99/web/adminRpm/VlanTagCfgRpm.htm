@@ -1,0 +1,180 @@
+
+<script language="Javascript" type="text/javascript">
+var voip_bridge_changed = 0;
+var iptv_bridge_changed = 0;
+
+function doSubmit()
+{
+	nat_vid = document.forms[0].nat_vid.value;
+	voip_vid = document.forms[0].voip_vid.value;
+	iptv_vid = document.forms[0].iptv_vid.value;
+	tr69_vid = document.forms[0].tr69_vid.value;
+	
+	if ( nat_vid<1 || nat_vid >4094)
+	{
+		alert("invalid NAT VLAN tag! VLAN tag id should be in 1~4094");
+		return false;
+	}
+	if ( voip_vid<1 || voip_vid >4094)
+	{
+		alert("invalid VoIP VLAN tag! VLAN tag id should be in 1~4094");
+		return false;
+	}
+	if ( iptv_vid<1 || iptv_vid >4094)
+	{
+		alert("invalid IPTV VLAN tag! VLAN tag id should be in 1~4094");
+		return false;
+	}
+	
+	//port 3
+	if (voip_vid == nat_vid) 
+	{			
+		if (document.forms[0].port3.checked == true) 
+		{
+			alert("When port3 bridge is enabled, you must specify a different VID from port1~2 VID");
+			return false;
+		}
+	}
+	else
+	{
+		if (document.forms[0].port3.checked == false) 
+		{
+			alert("When port3 bridge is disabled, its VID will be set as same as port1~2's VID");
+			document.forms[0].voip_vid.value = nat_vid;			
+		}
+	}
+		
+	//port 4 	
+	if (iptv_vid == nat_vid)
+	{
+		if (document.forms[0].port4.checked == true) 
+		{
+			alert("When port4 bridge is enabled, you must specify a different VID from port1~2 VID");
+			return false;
+		}
+	}
+	else
+	{
+		if (document.forms[0].port4.checked == false) 
+		{
+			alert("When port4 bridge is disabled, its VID will be set as same as port1~2's VID");
+			document.forms[0].iptv_vid.value = nat_vid;
+		}
+	}
+
+	if ((document.forms[0].port3.checked == true) 
+		&& (document.forms[0].port4.checked == true) )
+	{
+		if (iptv_vid == voip_vid)
+		{
+			alert("When port 3 and port 4 were both set as bridge mode, their VID must be differet");
+			return false;
+		}
+	}
+	
+	//tr69 vid
+	if ( (tr69_vid == nat_vid)
+		 || (tr69_vid == iptv_vid)
+		 || (tr69_vid == voip_vid) )
+	{
+		alert("WAN for TR069 VID must be different with others.");
+		return false;
+	}
+	
+	if ((nat_vid != vidInfo[0])
+		|| (voip_vid != vidInfo[1])
+		|| (iptv_vid != vidInfo[2])
+		|| (tr69_vid != vidInfo[3])
+		|| iptv_bridge_changed
+		|| voip_bridge_changed)
+	{
+		if(!confirm("Modification of  VID or bridge port will result in the rebooting of the Router, OK?"))
+		{
+			return false;
+		}	
+	}	
+	return true;
+}
+
+function onIptvBridgeChanged()
+{
+	iptv_bridge_changed = 1 - iptv_bridge_changed;
+}
+
+function onVoIPBridgeChanged()
+{
+	voip_bridge_changed = 1 - voip_bridge_changed;
+}
+</script>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+</HEAD>
+<BODY onLoad="setTagStr(document,'ntw_lanBr');LoadHelp('VlanTagCfgHelpRpm.htm'); resize(this);" onResize="resize(this);">
+<CENTER>
+  <FORM action="VlanTagCfgRpm.htm" enctype="multipart/form-data" method="get" onSubmit="return doSubmit();">
+    <TABLE id="autoWidth" border="0">
+      <TBODY>
+		<TR>
+          <TD class=h1 colspan=5 id="t_title">VLAN Tag</TD>
+        </TR>	  
+        <TR>
+          <TD class="blue" colspan="2"></TD>
+        </TR>
+        <TR>
+          <TD class=Item  id="t_iptv_tag"><b>Port1 VID: </b></TD>
+		  <TD><INPUT type="edit" name="iptv_vid" size = "4" value=""><INPUT type="checkbox" name="port4" onclick="onIptvBridgeChanged()">Enable Bridge</TD>
+		  <TD></TD>
+        </TR>
+        <TR>
+          <TD class=Item id="t_voip_tag"><b>Port2 VID:</b></TD>
+		  <TD><INPUT type="edit" name="voip_vid" size = "4" value=""><INPUT type="checkbox" name="port3" onclick="onVoIPBridgeChanged()">Enable Bridge</TD>
+        </TR>
+		<TR>
+          <TD class=Item id="t_nat_tag"><b>Port3~4 VID:</b></TD>
+		  <TD><INPUT type="edit" name="nat_vid" size = "4" value=""></TD>		  
+        </TR>		
+		<TR>
+          <TD class=Item id="t_tr69_vid_tag"><b>WAN For TR069 VID:</b></TD>
+		  <TD><INPUT type="edit" name="tr69_vid" size = "4" value=""></TD>
+        </TR>
+		<TR>
+          <TD class="blue" colspan="2"></TD>
+        </TR>
+        <TR> 
+		  <TD></TD>	
+          <TD><INPUT name="Save" type="submit" class="buttonBig" value="Save" onClick="return doSubmit();></TD>
+        </TR>
+      </TBODY>
+    </TABLE>
+  </FORM>
+</CENTER>
+</BODY>
+<HEAD>
+<META http-equiv="pragma" content="no-cache">
+</HEAD>
+</HTML>
+<SCRIPT type="text/javascript">
+	document.forms[0].nat_vid.value = vidInfo[0];
+	document.forms[0].voip_vid.value = vidInfo[1];
+	document.forms[0].iptv_vid.value = vidInfo[2];	
+	document.forms[0].tr69_vid.value = vidInfo[3];
+	
+	//voip vid == nat vid, means do not use voip bridge
+	if (vidInfo[1] == vidInfo[0])
+	{
+		document.forms[0].port3.checked = 0;
+	}
+	else
+	{
+		document.forms[0].port3.checked = 1;
+	}
+	
+	//iptv vid == nat vid, means do not use iptv bridge
+	if (vidInfo[2] == vidInfo[0])
+	{
+		document.forms[0].port4.checked = 0;
+	}
+	else
+	{
+		document.forms[0].port4.checked = 1;
+	}	
+</SCRIPT>

@@ -1,0 +1,1 @@
+#define CONFIG_PCI_INIT_IN_MONITOR 1

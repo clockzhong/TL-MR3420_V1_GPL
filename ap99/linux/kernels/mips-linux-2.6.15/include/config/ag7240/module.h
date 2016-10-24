@@ -1,0 +1,1 @@
+#define CONFIG_AG7240_MODULE 1

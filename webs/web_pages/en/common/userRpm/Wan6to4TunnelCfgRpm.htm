@@ -1,0 +1,197 @@
+<SCRIPT type="text/javascript">
+var Tunnel6to4Info = new Array(
+1,			/*0:Connection type*/
+1,			/*1:????6to4?? 0:? 1:?*/
+1280,		/*2: MTU*/
+0,			/*3: ???????DNS???*/
+"2002:1",	/*4: PRIM DNS */
+"2002:2",	/*5: SECOND DNS*/
+"192.168.1.1",/*6: IPv4 IP*/
+"255.255.255.0",/*7: IPv4 mask*/
+"102.168.1.100",/*8: mask*/
+"2002:16::16",	/*9: tunnel address*/
+"2002:16/64",	/*10: prefix*/
+0,0);
+
+var wantypeinfo = new Array(
+5,
+0,
+"WanDynamicIpV6CfgRpm.htm",
+1,
+"WanStaticIpV6CfgRpm.htm",
+2,
+"PPPoEV6CfgRpm.htm",
+3,
+"6to4Cfg.htm",
+4,
+"LinkLocalCfg.htm",
+0,0 );
+</SCRIPT>
+<HTML>
+<HEAD>
+<TITLE></TITLE>
+<META http-equiv="pragma" content="no-cache">
+<META http-equiv="expires" content="wed, 26 Feb 1997 08:21:57 GMT">
+<LINK href="../dynaform/css_main.css" rel=stylesheet>
+<SCRIPT language="javascript" src="../dynaform/common.js" type="text/javascript"></SCRIPT>
+<!--<TP_C_TAG>-->
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<SCRIPT type="text/javascript"><!--//
+var wanType = new Array(
+"id=\"t_dyma_ip\" name=\"t_dyma_ip\">Dynamic IP<",	//	WAN_TYPE_DHCP = 0,
+"id=\"t_stat_ip\" name=\"t_stat_ip\">Static IP<",	//	WAN_TYPE_STATIC_IP, 
+"id=\"t_pppoe\" name=\"t_pppoev6\">PPPoeV6<",		//	WAN_TYPE_PPPOEv6, 
+"id=\"t_pppoe\" name=\"t_6to4\">6to4<",				//	WAN_TYPE_6TO4, 
+"id=\"t_pppoe\" name=\"t_link_local\">Link local<",	//	WAN_TYPE_LINK_LOCAL, 
+""	//	WAN_TYPE_END
+);
+function doSubmit()
+{
+	return true;
+}
+function doChange()
+{
+	var t = document.forms[0].wantype.selectedIndex;
+	location.href = "../userRpm/"+wantypeinfo[t*2+2];
+}
+
+function doSet()
+{
+	if(document.forms[0].manual.checked)
+	{
+		document.forms[0].dnsserver.disabled = false;
+		document.forms[0].dnsserver2.disabled = false;
+	}
+	else
+	{
+		document.forms[0].dnsserver.disabled = true;
+		document.forms[0].dnsserver2.disabled = true;
+	}
+	return true;
+}
+
+function doOnclinck()
+{
+	var obj = document.forms[0];
+	if(obj.enableTunnel.checked)
+	{
+		obj.mtu.disabled = false;
+		obj.manual.disabled = false;
+	}
+	else
+	{
+		obj.mtu.disabled = true;
+		obj.manual.disabled = true;
+		obj.dnsserver.disabled = true;
+		obj.dnsserver2.disabled = true;
+	}
+}
+//--></SCRIPT>
+</HEAD>
+<SCRIPT type="text/javascript">
+</SCRIPT>
+<BODY onLoad="resize(this);LoadHelp('NetworkV6CfgHelpRpm.htm')" onResize="resize(this);">
+<FORM action="Wan6to4TunnelCfgRpm.htm" enctype="multipart/form-data" method="get" onSubmit="return doSubmit();">
+  <TABLE id="autoWidth">
+    <TR>
+      <TD class=h1 colspan=2 id = "t_title">6To4 Tunnel Configuration</TD>
+    </TR>
+    <TR>
+      <TD class=blue colspan=2></TD>
+    </TR>    
+    <TR>
+      <TD class=Item id = "t_wan_conn_tp">WAN Connection Type:</TD>
+      <TD><SELECT name="wantype" onChange="doChange()">
+	<SCRIPT type="text/javascript">
+	for ( var t=0; t < wantypeinfo[0]; t++)
+	{
+		document.write('<option value="'+wantypeinfo[t*2+1]+'" '+wanType[wantypeinfo[t*2+1]]+'\/option>');
+	}
+	</SCRIPT>
+        </SELECT>       
+    </TR>
+  
+    <TR>
+      <TD class=Item id = "t_ip_addr">Address:</TD>
+      <TD><div id="ip"></div></TD>
+    </TR>
+    <TR>
+      <TD class=Item id = "t_prefix">Subnet Mask:</TD>
+      <TD><div id="mask"></div></TD>
+    </TR>
+    <TR>
+      <TD class=Item id = "t_def_gateway">Default Gateway:</TD>
+      <TD><div id="gateway"></div></TD>
+    </TR>
+    <TR>
+      <TD colspan=2></TD>
+    </TR>
+	
+	<TR>
+      <TD class=Item id = "t_enable_tunnel">Enable 6To4 Tunnel:</TD>
+      <TD><input type="checkbox" name="enableTunnel" onclick="doOnclinck()"></TD>
+    </TR>
+	<TR>
+      <TD class=Item id = "t_tunnel_addr">Tunnel Address:</TD>
+      <TD><div id="tunnelAddr"></div></TD>
+    </TR>
+	<TR>
+      <TD class=Item id = "t_prefix">Prefix:</TD>
+      <TD><div id="prefix"></div></TD>
+    </TR>
+    <TR>
+      <TD class=Item id = "t_mtu_size">MTU Size (in bytes):</TD>
+      <TD><INPUT name="mtu" type="text" class="text" value="" size="5" maxlength="5">
+        <SPAN id = "t_desc">&nbsp;(The default is 1500, do not change unless necessary.)</SPAN></TD>
+    </TR>
+    
+     <TR>
+      <TD class=Item><INPUT name="manual" type="checkbox" value="2" onClick="doSet();"></TD>
+      <TD><SPAN id = "t_use_dns_ser">Use These DNS Servers</SPAN></TD>
+    </TR>
+    <TR>
+      <TD class=Item id = "t_pri_dns">Primary DNS:</TD>
+      <TD><INPUT name="dnsserver" type="text" class="text" value="" size="15" maxlength="15"></TD>
+    </TR>
+    <TR>
+      <TD class=Item id = "t_sec_dns">Secondary DNS:</TD>
+      <TD><INPUT name="dnsserver2" type="text" class="text" value="" size="15" maxlength="15">
+        <SPAN id = "t_opt">&nbsp;(Optional)</SPAN></TD>
+    </TR>
+    <TR>
+      <TD class=blue colspan=2></TD>
+    </TR>
+    <TR>
+      <TD></TD>
+      <TD><INPUT name="Save" type="submit" class="buttonBig" value="Save"></TD>
+    </TR>
+  </TABLE>
+</FORM>
+</BODY>
+<HEAD>
+<META http-equiv="pragma" content="no-cache">
+</HEAD>
+</HTML>
+<SCRIPT type="text/javascript">
+	if(Tunnel6to4Info[3] == 0)
+	{
+		document.forms[0].dnsserver.disabled = true;
+		document.forms[0].dnsserver2.disabled = true;
+	}
+	else
+	{
+		document.forms[0].dnsserver.disabled = false;
+		document.forms[0].dnsserver2.disabled = false;
+	}
+	document.forms[0].wantype.selectedIndex = Tunnel6to4Info[0];
+	document.forms[0].enableTunnel.checked = Tunnel6to4Info[1] == 1?true:false;
+	document.forms[0].mtu.value = Tunnel6to4Info[2];
+	document.forms[0].manual.checked = Tunnel6to4Info[3] == 1 ? true : false;
+	document.forms[0].dnsserver.value = Tunnel6to4Info[4];
+	document.forms[0].dnsserver2.value = Tunnel6to4Info[5];
+	document.getElementById("ip").innerHTML = Tunnel6to4Info[6];
+	document.getElementById("mask").innerHTML = Tunnel6to4Info[7];
+	document.getElementById("gateway").innerHTML = Tunnel6to4Info[8];
+	document.getElementById("tunnelAddr").innerHTML = Tunnel6to4Info[9];
+	document.getElementById("prefix").innerHTML = Tunnel6to4Info[10];
+</SCRIPT>

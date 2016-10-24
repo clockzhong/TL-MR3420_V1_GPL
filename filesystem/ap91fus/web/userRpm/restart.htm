@@ -1,0 +1,124 @@
+
+<META http-equiv=Content-Type content="text/html; charset=gb2312">
+<script language="JavaScript"><!-- 
+
+var strRebootNote = new Array(
+	"操作成功",				            //reboot
+	"恢复出厂设置成功！",				//restore to factory
+	"软件升级成功！",				    //firmware update
+	"配置文件载入成功！",				//config update
+	"配置保存成功！",				    //wlanCfgSave
+	"操作成功.",
+    "LAN IP地址设置成功."                //Lan IP config 
+);
+//added by ZQQ,09.03.12  增加进度条，（30 + 2）秒后发出请求首页命令
+function LoadMain()
+{
+	parent.location.href = "http://" + rebootInf[0] + ":" + rebootInf[1];
+}
+
+function JumpToMain()
+{
+	if (!parent.bottomLeftFrame)
+	{
+		 window.setTimeout("self.close();" , 4000);
+		// self.close();
+	}
+	else
+	{
+    	parent.bottomLeftFrame.collapseAll();
+    }
+    window.setTimeout("LoadMain()" , 2000);
+    return true;
+}
+
+function doLoad()
+{
+	doReFresh();
+}
+    var timeout = rebootInf[2] * 10;
+    var rate = 0;
+function doReFresh()
+{
+	window.setTimeout("growUp()",timeout);
+}
+function growUp()
+{
+    var obj = document.getElementById('td1');
+	rate = rate + 1;
+	obj.style.width = rate + "%";
+    var per=document.getElementById("percent");
+    per.innerHTML=rate+"%";
+	if(rate >= 100)
+	{
+        var obj=document.getElementById("tag_notice");
+        obj.style.display="block";
+        var info = document.getElementById("t_info");
+        info.innerHTML = "重启完成";
+        info.style.color = "green";
+        per.style.color="green";
+        JumpToMain();
+		return;
+	}
+	doReFresh();
+}
+
+document.onkeydown = function()
+{
+	if (typeof event == "undefined")
+	{
+		alert("路由器正在重启中，请耐心等待。");
+		LoadMain();
+	}
+	else
+	{
+		with(event)
+		{
+			if (event.keyCode == 116 ||
+				event.keyCode == 8 ||
+				(ctrlKey && event.keyCode == 82) )
+				
+			{
+				event.keyCode = 0;
+				event.returnValue =  false;
+			}
+		}
+	}
+}
+//--></script></head>
+<BODY onLoad="return doLoad();">
+<center><form>
+<table width="502" border="0" cellspacing="0" cellpadding="0">
+<tr><td width="7" class="title"><img src="/images/arc.gif" width="7" height="24"></td>
+<td width="495" align="left" valign="middle" class="title" >重新启动</td></tr>
+<tr><td colspan="2"><table width="502" border="0" cellspacing="0" cellpadding="0">
+<tr><td class="vline" rowspan="15"><br></td>
+<td width="500" height="220"><table width="400" border="0" align="center">
+<tr><td align="center" colspan="2">
+<script language="Javascript"><!--
+document.write(strRebootNote[rebootInf[3]]);
+//--></script></head>
+</td></tr>
+<tr><td  colspan="2" id="t_info">正在重新启动</td></tr>
+<tr>
+    <td <div id="percent"></div></td>
+    <td style = "width:98%">
+        <table id="td1" name="td1" border="1px" cellpadding="0" cellspacing="0" height="12px" style="width:0px" bgcolor="#6699FF"><tr bgcolor="#6699FF"><td> </td></tr>         
+</table></td>
+</tr>
+
+<tr>
+<td colspan=2>
+<table>
+<td id ="tag_notice" style="display:none" colspan=2>请稍候。如果您的浏览器没有自动刷新，请点击浏览器的“刷新”按钮。</td></tr> 
+</table>
+</td></tr>
+
+</table></td>
+<td class="vline" rowspan="15"><br> </td></tr>
+<tr><td class="hline"><img src="/images/empty.gif" width="1" height="1"></td></tr>
+<tr><td class="tail"> </td></tr>
+<tr><td class="hline"><img src="/images/empty.gif" width="1" height="1"></td></tr>
+</table></td></tr></table>
+</form></center>
+</body><head><meta http-equiv="pragma" content="no-cache"></head></html>

@@ -1,0 +1,1 @@
+#define CONFIG_GPIO_RESET_FAC_BIT 11

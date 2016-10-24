@@ -1,0 +1,126 @@
+
+<script language="Javascript" type="text/javascript">
+function doSubmit()
+{	
+	var port_mirroring_status = document.forms[0].mirror_status.value;
+	var mirrored_port = document.forms[0].mirrored_port.value;
+	var mirroring_port = document.forms[0].mirroring_port.value;
+	
+	if ( mirrored_port < 1 || mirrored_port > 4)
+	{
+		alert("mirrored port setting error!");
+		return false;
+	}
+	
+	if ( mirroring_port<1 || mirroring_port >4)
+	{
+		alert("mirroring port setting error!");
+		return false;
+	}
+	
+	if (mirrored_port == mirroring_port)
+	{
+		alert("mirrored port and mirroring port must be different!");
+		return false;
+	}
+			
+	if ((port_mirroring_status != portMirrorInfo[0])
+		|| (mirrored_port != portMirrorInfo[1])
+		|| (mirroring_port != portMirrorInfo[2]))
+	{
+		if(!confirm("Modification of port mirroring configuration will result in the rebooting of the Router, OK?"))
+		{
+			return false;
+		}	
+	}	
+	return true;
+}
+
+function doOnStatusSelect()
+{	
+	if (document.forms[0].mirror_status[0].checked)
+	{
+		document.forms[0].mirrored_port.disabled = true;
+		document.forms[0].mirroring_port.disabled = true;
+	}
+	
+	if (document.forms[0].mirror_status[1].checked)	
+	{
+		document.forms[0].mirrored_port.disabled = false;
+		document.forms[0].mirroring_port.disabled = false;
+	}
+}
+
+</script>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+</HEAD>
+<BODY onLoad="setTagStr(document,'ntw_portMirror');LoadHelp('PortMirrorCfgHelpRpm.htm'); resize(this);" onResize="resize(this);">
+<CENTER>
+  <FORM action="PortMirrorCfgRpm.htm" enctype="multipart/form-data" method="get" onSubmit="return doSubmit();">
+    <TABLE id="autoWidth" border="0">
+      <TBODY>
+		<TR>
+          <TD class=h1 colspan=5 id="t_title">Port Mirroring</TD>
+        </TR>	  
+        <TR>
+          <TD class="blue" colspan="2"></TD>
+        </TR>
+        <TR>
+          <TD class=Item  id="t_mirror"><b>Port Mirroring: </b></TD>
+		  <TD> <INPUT name="mirror_status" type="radio" value="0" onClick="doOnStatusSelect()">
+			   <SPAN id = "t_disable">Disable </SPAN>
+			   &nbsp;&nbsp;&nbsp;&nbsp;
+			   <INPUT name="mirror_status" type="radio" value="1" onClick="doOnStatusSelect()">
+			   <SPAN id = "t_enable">Enable </SPAN>
+		  </TD>
+		  <TD></TD>
+        </TR>
+        <TR>
+          <TD class=Item id="t_mirrored_port"><b>Mirrored Port:</b></TD>
+		  <TD>
+		  <select name="mirrored_port" id="mirrored_ports">
+		  <option value=1> port1 </option>
+		  <option value=2> port2 </option>
+		  <option value=3> port3 </option>
+		  <option value=4> port4 </option>
+		  </select>
+		  </TD>
+        </TR>
+		<TR>
+          <TD class=Item id="t_mirroring_port"><b>Mirroring Port:</b></TD>
+		  <TD>
+		  <select name="mirroring_port" id="mirroring_ports">
+		  <option value=1> port1 </option>
+		  <option value=2> port2 </option>
+		  <option value=3> port3 </option>
+		  <option value=4> port4 </option>
+		  </select>
+		  </TD>
+        </TR>
+		<TR>
+          <TD class="blue" colspan="2"></TD>
+        </TR>
+        <TR> 
+		  <TD></TD>	
+          <TD><INPUT name="Save" type="submit" class="buttonBig" value="Save" onClick="return doSubmit();></TD>
+        </TR>
+      </TBODY>
+    </TABLE>
+  </FORM>
+</CENTER>
+</BODY>
+<HEAD>
+<META http-equiv="pragma" content="no-cache">
+</HEAD>
+</HTML>
+<SCRIPT type="text/javascript">
+
+	document.forms[0].mirror_status[(portMirrorInfo[0])].checked = true;
+	document.forms[0].mirrored_port.value = portMirrorInfo[1];
+	document.forms[0].mirroring_port.value = portMirrorInfo[2];	
+	if (0 == portMirrorInfo[0])
+	{
+		document.forms[0].mirrored_port.disabled = true;
+		document.forms[0].mirroring_port.disabled = true;
+	}	
+</SCRIPT>

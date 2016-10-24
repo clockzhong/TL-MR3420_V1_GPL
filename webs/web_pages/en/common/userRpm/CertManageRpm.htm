@@ -1,0 +1,136 @@
+<SCRIPT type="text/javascript">
+var certManageParam = new Array(
+"Common Name",
+"service@tp-link.com.cn",
+1,
+0,0 );
+</SCRIPT>
+<HTML>
+<TITLE>TL-WR941N/TL-WR942N</TITLE>
+<HEAD>
+<META http-equiv=Pragma content=no-cache>
+<META http-equiv=Expires content="wed, 26 Feb 1997 08:21:57 GMT">
+<LINK href="../dynaform/css_main.css" rel=stylesheet>
+<SCRIPT language="JavaScript" src="../dynaform/common.js" type="text/JavaScript">
+</SCRIPT>
+<!--<TP_C_TAG>-->
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<SCRIPT type="text/javascript">
+<!--//
+function style_display_on()
+{
+	if (window.ActiveXObject)
+	{ // IE
+		return "block";
+	}
+	else if (window.XMLHttpRequest)
+	{ // Mozilla, Safari,...
+		return "table-row";
+	}
+}
+function is_valid_string(tstr, valid_ch_set)
+{
+    var c;
+	for (var i = 0; i < tstr.length; i++)
+    {
+        c = tstr.charAt(i);
+        if (valid_ch_set.indexOf(c) == -1)
+        {
+            return false;
+        }
+    }		
+    return true;
+}
+function is_valid_name(common_name)
+{
+	var ch = " -.ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    return is_valid_string(common_name, ch);
+}
+function is_valid_email(email_addr)
+{
+	var ch = "@_-.ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    return is_valid_string(email_addr, ch);
+}
+function do_submit()
+{
+    var name_input = document.forms[0].common_name;
+    var email_input = document.forms[0].email_address;
+
+    if (name_input.value == "")
+    {
+        alert(js_no_name="Please input common name!");
+        name_input.focus();
+        return false;
+    }
+    if (!is_valid_name(name_input.value))
+    {
+        alert(js_illegal_common_name="The common name contains illegal characters, please input another one!");
+        name_input.focus();
+        name_input.select();
+        return false;
+    }
+
+    if (email_input.value == "")
+    {
+        alert(js_no_email="Please input E-mail address!");
+        email_input.focus();
+        return false;
+    }
+    if (!is_valid_email(email_input.value))
+    {
+        alert(js_illegal_email_addr="The E-mail address contains illegal characters, please input another one!");
+        email_input.focus();
+        email_input.select();
+        return false;
+    }
+
+    return true;
+}
+//-->
+</SCRIPT>
+</HEAD>
+<BODY onLoad="LoadHelp('CertManageHelpRpm.htm');setTagStr(document,'cert_manage');resize(this);" onResize="resize(this);">
+<CENTER>
+  <FORM action="CertManageRpm.htm" enctype="multipart/form-data" method="get" onSubmit="return do_submit();">
+    <TABLE id="autoWidth">
+      <TBODY>
+        <TR>
+          <TD class=h1 colspan=2 id = "t_title">Certificate Management</TD>
+        </TR>
+        <TR>
+          <TD class=blue colspan=2></TD>
+        </TR>
+        <TR>
+          <TD class=Item id = "t_common_name">Common Name:</TD>
+          <TD><INPUT name="common_name" type="text" class="text" value="tp-link" size="20" maxlength="63"></TD>
+        </TR>
+        <SCRIPT type="text/javascript">
+</SCRIPT>
+        <TR>
+          <TD class=Item id = "t_email_addr">Email Address:</TD>
+          <TD>
+             <INPUT name="email_address" type="text" class="text" value="service@tp-link.com" size="20" maxlength="39">
+          </TD>
+        </TR>
+        <TR id="id_reboot_note" style="display:none"><TD colspan=2><span style="color:#FF0000" id="t_cert_chng">The change of certificate parameters will not take effect until the Router reboots, please </span><A href="../userRpm/SysRebootRpm.htm" id="t_click">click here</A><span id="t_to_reboot" style="color:#FF0000"> to reboot.</span></TD></TR>
+        <TR>
+          <TD class=blue colspan=2></TD>
+        </TR>
+        <TR>
+          <TD></TD>
+          <TD colspan=2><INPUT name="Save" type="submit" class="buttonBig" value="Save"></TD>
+        </TR>
+      </TBODY>
+    </TABLE>
+  </FORM>
+</CENTER>
+</BODY>
+<HEAD>
+<META http-equiv="pragma" content="no-cache">
+</HEAD>
+</HTML>
+<SCRIPT type="text/javascript">
+document.forms[0].common_name.value = certManageParam[0];
+document.forms[0].email_address.value = certManageParam[1];
+document.getElementById("id_reboot_note").style.display = (certManageParam[2]==0)?"none":style_display_on();
+</SCRIPT>

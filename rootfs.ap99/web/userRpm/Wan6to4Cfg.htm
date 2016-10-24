@@ -1,0 +1,82 @@
+
+<meta http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<body onLoad="resize(this);LoadHelp('NetworkV6CfgHelpRpm.htm')" onResize="resize(this);">
+<form action="Wan6to4CfgRpm.htm" enctype="multipart/form-data" method="get" onSubmit="return doSubmit();">
+<TABLE id="autoWidth">
+	<tr>
+      <td class=h1 colspan=2 id = "t_title">6to4 Tunnel Configuration</td>
+    </tr>
+	<tr>
+      <td class=blue colspan=2></td>
+    </tr>
+	<tr>
+		<td  class=Item id="t_wan_type">WAN Connection Type:</td>
+		<td><div id="wanType"></td>
+	</tr>
+	<tr>
+		<td class=Item id="ipv4_addr">IPv4 Address:</td>
+		<td><div id="ipv4Addr"></td>
+	</tr>
+	<tr>
+		<td class=Item id="ipv4_addr">IPv4 Subnet Mask:</td>
+		<td><div id="ipv4Subnetmask"></td>
+	</tr>
+	<tr>
+		<td class=Item id="ipv4_addr">IPv4 Gateway:</td>
+		<td><div id="ipv4Gateway"></td>
+	</tr>
+	<script type="text/javascript">
+	if(wan6to4Info[1] == "0.0.0.0")
+	{
+		document.write("<tr>");		
+		document.write("<td class=Item id=\"msg\">Message:</td>");		
+		document.write("<td id=\"t_msg\">The WAN can not obtain an IPv4 address, please click <a href=\"../userRpm/" + wanTypeInfo[2*wan6to4Info[0] + 1] + "\">here</a> to check WAN configure.</td>");
+		document.write("</tr>");			
+	}
+	</script>
+	<tr>
+	<td colspan=2></td>
+	</tr>
+	
+	<tr id = "tr1">
+	<td class=Item>Enable 6to4 Tunnel:</td>
+	<td ><input type=checkbox name="enableTunnel" id="enableTunnel" onclick="doTunnelEnable();">
+	</tr>
+
+	<tr id = "tr2">
+	<td class=Item id="ipv4_addr">6to4 Tunnel Address:</td>
+	<td><div id="6to4TunnleAddress"></td>
+	</tr>
+
+	<tr id = "tr3">
+	<td class=Item id="ipv4_addr">6to4 Tunnel Address Prefix:</td>
+	<td><div id="6to4TunnleAddressPrefix"></td>
+	</tr>
+	
+	<tr>
+	<td class=blue colspan=2></td>
+	</tr>
+
+	<tr>
+	<td></td>
+	<td><input name="Save" type="submit" class="buttonBig" value="Save"></td>
+	</tr>
+</TABLE>
+<script type="text/javascript">
+	var index = 2*wan6to4Info[0];
+	document.getElementById("wanType").innerHTML=wanTypeInfo[index];
+	document.getElementById("ipv4Addr").innerHTML=wan6to4Info[1];
+	document.getElementById("ipv4Subnetmask").innerHTML=wan6to4Info[2];
+	document.getElementById("ipv4Gateway").innerHTML=wan6to4Info[3];
+	document.getElementById("enableTunnel").checked = (wan6to4Info[4]==1) ? true : false;
+	document.getElementById("6to4TunnleAddress").innerHTML=wan6to4Info[5];
+	document.getElementById("6to4TunnleAddressPrefix").innerHTML=wan6to4Info[6];	
+	if(wan6to4Info[1] == "0.0.0.10")
+	{
+		document.getElementById("tr1").style.display = "none";
+		document.getElementById("tr2").style.display = "none";
+		document.getElementById("tr3").style.display = "none";
+	}
+</script>
+</form>
+</body>

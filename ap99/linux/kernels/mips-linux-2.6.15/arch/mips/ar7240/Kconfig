@@ -1,0 +1,78 @@
+#
+# USB device configuration
+#
+
+menu "AR724x GPIO Setting Support"
+	depends on MACH_AR7240
+
+config GPIO_DEBUG
+	bool "GPIO DEBUG turn on/off"
+	default n if MACH_AR7240
+	default n
+	
+menu "JumpStart LED"
+config GPIO_JUMPSTART_LED_BIT
+	int "JumpStart LED Bit"
+	range 0 17
+	default 0 if MACH_AR7240
+	default 0
+
+config GPIO_JUMPSTART_LED_ON
+	int "Jump Start LED's value Of On"
+	range 0 1
+	default 0 if MACH_AR7240
+	default 1
+endmenu
+
+menu "Ready Status"
+config GPIO_READY_STATUS_BIT
+	int "Ready Status Led Bit"
+	range 0 17
+	default 1 if MACH_AR7240
+	default 1
+
+config GPIO_READY_STATUS_ON
+	int "Ready Status Led's value of On"
+	range 0 1
+	default 0 if MACH_AR7240
+	default 1
+endmenu
+
+menu "USB(TMS) LED"
+	depends on USB
+config GPIO_USB_LED_BIT
+	int "USB(TMS) LED bit"
+	range 0 17
+	default 8 if MACH_AR7240
+	default 8
+
+config GPIO_USB_LED_ON
+	int "GPIO USB Led's value of On"
+	range 0 1
+	default 0 if MACH_AR7240
+	default 1
+endmenu
+
+menu "Reset Factory Default"
+config GPIO_RESET_FAC_BIT
+	int "Reset Factory Default bit"
+	range 0 17
+	default 11 if MACH_AR7240
+	default 11
+
+config GPIO_FAC_RST_HOLD_TIME
+	int "Reset Key Hold Time for Factory Default"
+	range 1 30
+	default 5
+endmenu
+
+menu "JumpStart Switch"
+config GPIO_JUMPSTART_SW_BIT
+	int "JumpStart Switch bit"
+	range 0 17
+	default 12 if MACH_AR7240
+	default 12
+endmenu
+
+endmenu
+

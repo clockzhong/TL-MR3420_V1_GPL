@@ -1,0 +1,1 @@
+#define CONFIG_GPIO_USB_LED_ON 0

@@ -1,0 +1,45 @@
+#!/bin/bash
+
+mkdir -p $INSTALL_ROOT_FOR_BOARD/dev/pts	
+mknod $INSTALL_ROOT_FOR_BOARD/dev/ar7100_flash_chrdev		c	239  	0	
+mknod $INSTALL_ROOT_FOR_BOARD/dev/ar7100_gpio_chrdev		c	238  	0	
+mknod $INSTALL_ROOT_FOR_BOARD/dev/caldata		b	31  	4
+mknod $INSTALL_ROOT_FOR_BOARD/dev/console		c	5  	1		
+mknod $INSTALL_ROOT_FOR_BOARD/dev/dk0			c	63 	0
+mknod $INSTALL_ROOT_FOR_BOARD/dev/kmem		c	1  	2		
+mknod $INSTALL_ROOT_FOR_BOARD/dev/mem			c	1  	1		
+mknod $INSTALL_ROOT_FOR_BOARD/dev/mtd0		c	90 	0
+mknod $INSTALL_ROOT_FOR_BOARD/dev/mtdblock0		b	31  	0
+mknod $INSTALL_ROOT_FOR_BOARD/dev/mtdblock1		b	31  	1
+mknod $INSTALL_ROOT_FOR_BOARD/dev/mtdblock2		b	31  	2
+mknod $INSTALL_ROOT_FOR_BOARD/dev/mtdblock3		b	31  	3
+mknod $INSTALL_ROOT_FOR_BOARD/dev/mtdblock4		b	31  	4
+mknod $INSTALL_ROOT_FOR_BOARD/dev/mtdblock5		b	31  	5
+mknod $INSTALL_ROOT_FOR_BOARD/dev/mtdblock6		b	31  	6
+mknod $INSTALL_ROOT_FOR_BOARD/dev/mtdr0		c	90  1
+mknod $INSTALL_ROOT_FOR_BOARD/dev/null		c	1  	3	
+mknod $INSTALL_ROOT_FOR_BOARD/dev/ppp			c	108	0	
+mknod $INSTALL_ROOT_FOR_BOARD/dev/ptmx		c	5	2
+mknod $INSTALL_ROOT_FOR_BOARD/dev/ptyp0		c	2	0
+mknod $INSTALL_ROOT_FOR_BOARD/dev/ptyp1		c	2	1
+mknod $INSTALL_ROOT_FOR_BOARD/dev/ptyp2		c	2	2
+mknod $INSTALL_ROOT_FOR_BOARD/dev/ram0		b	1	0	
+mknod $INSTALL_ROOT_FOR_BOARD/dev/random		c	1  	8		
+mknod $INSTALL_ROOT_FOR_BOARD/dev/tty			c	5  	0		
+mknod $INSTALL_ROOT_FOR_BOARD/dev/tty0		c	4	0
+mknod $INSTALL_ROOT_FOR_BOARD/dev/tty1		c	4	1
+mknod $INSTALL_ROOT_FOR_BOARD/dev/tty2		c	4	2
+mknod $INSTALL_ROOT_FOR_BOARD/dev/ttyS0		c	4	64
+mknod $INSTALL_ROOT_FOR_BOARD/dev/ttyS1		c	4	65
+mknod $INSTALL_ROOT_FOR_BOARD/dev/ttyS2		c	4	66
+mknod $INSTALL_ROOT_FOR_BOARD/dev/ttyp0		c	3	0
+mknod $INSTALL_ROOT_FOR_BOARD/dev/urandom		c	1  	9
+mknod $INSTALL_ROOT_FOR_BOARD/dev/zero		c	1	5	
+mknod $INSTALL_ROOT_FOR_BOARD/dev/ttyp1		c	3	1
+mknod $INSTALL_ROOT_FOR_BOARD/dev/ttyp2		c	3	2
+mknod $INSTALL_ROOT_FOR_BOARD/dev/ttyUSB0	c	188	0
+mknod $INSTALL_ROOT_FOR_BOARD/dev/ttyUSB1	c	188	1
+mknod $INSTALL_ROOT_FOR_BOARD/dev/ttyUSB2	c	188	2
+mknod $INSTALL_ROOT_FOR_BOARD/dev/ttyUSB3	c	188	3
+mknod $INSTALL_ROOT_FOR_BOARD/dev/ttyUSB4	c	188	4
+mknod $INSTALL_ROOT_FOR_BOARD/dev/ttyUSB5	c	188	5

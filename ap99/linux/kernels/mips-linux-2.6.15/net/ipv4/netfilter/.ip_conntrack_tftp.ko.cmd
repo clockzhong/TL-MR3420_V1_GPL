@@ -1,0 +1,1 @@
+cmd_net/ipv4/netfilter/ip_conntrack_tftp.ko := mips-linux-uclibc-ld  -m elf32btsmip -r -o net/ipv4/netfilter/ip_conntrack_tftp.ko net/ipv4/netfilter/ip_conntrack_tftp.o net/ipv4/netfilter/ip_conntrack_tftp.mod.o

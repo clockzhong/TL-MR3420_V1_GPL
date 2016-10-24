@@ -1,0 +1,272 @@
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<SCRIPT language="javascript" src="../localiztion/3g.js" type="text/javascript"></SCRIPT>
+<SCRIPT type="text/javascript"><!--
+var i;
+var tag;
+var timerId = 0;
+var accessTye = wzdMobileParam[11];
+
+
+function doBack()
+{
+	location.href = "/userRpm/Wzd3GTypeRpm.htm?Return=Back";
+}
+
+function doSubmit()
+{
+	var c;
+	var ch="0123456789*#";
+	if (document.getElementById("manualmobile").checked == true)
+	{
+		var element = document.getElementById("manualdn");
+		for (var i = 0; i < element.value.length; i++)
+		{
+			c = element.value.charAt(i);
+			if (ch.indexOf(c) == -1)
+			{
+				alert(js_wrong_dialnum = "The Dial Number must be composed of numbers, * and #.");
+				element.focus();
+				element.select();
+				return false;
+			}
+		}
+		document.getElementById("dialnum").value = document.getElementById("manualdn").value;
+		document.getElementById("apn").value = document.getElementById("manualapn").value;
+	}
+	else
+	{
+		document.getElementById("dialnum").value = document.getElementById("autodn").innerHTML;
+		document.getElementById("apn").value = document.getElementById("autoapn").innerHTML;	
+	}
+	return true;
+}
+
+function doCheck()
+{
+	if (document.getElementById("manualmobile").disabled != true)
+	{
+		if (document.getElementById("manualmobile").checked == true)
+		{
+			document.getElementById("manualdn").disabled = false;
+			document.getElementById("manualapn").disabled = false;
+			document.getElementById("selloc").disabled = true;
+			document.getElementById("isp").disabled = true;
+		}
+		else
+		{
+			document.getElementById("manualdn").disabled = true;
+			document.getElementById("manualapn").disabled = true;
+			document.getElementById("selloc").disabled = false;
+			document.getElementById("isp").disabled = false;
+		}
+	}
+	if (document.getElementById("isp").disabled == true)
+	{
+		document.getElementById("isppara").innerHTML = "";
+	}
+	else
+	{
+		displayPara();
+	}
+}
+
+function doBlur()
+{
+	if (mobileParam[0] ==0 || mobileParam[0] == 2 || mobileParam[1] != 2)
+	{
+		timerId = window.setTimeout("doRefresh()",10000);
+	}
+}
+
+function doFocus()
+{
+	if (timerId != 0)
+	{	
+		window.clearTimeout(timerId);
+	}
+	timerId = 0;
+}
+
+function doRefresh()
+{
+	location.href = "../userRpm/Wzd3GTypeRpm.htm";
+}
+
+function displayISP()
+{
+	var locationname = "location" + document.getElementById("selloc").value;
+	var obj = document.getElementById("isp");
+
+	while((i = obj.options.length) > 0)
+	{
+		obj.remove(0);
+	}
+	
+	i = 0;
+	for (tag in w3gisp_js[locationname])
+	{
+		if (w3gisp_js[locationname][tag]["isp_name"] == undefined)
+		{
+			continue;
+		}
+		obj.options[i] = new Option(w3gisp_js[locationname][tag]["isp_name"], i);
+		i++;
+	}
+}
+
+function displayPara()
+{
+	var locationname = "location" + document.getElementById("selloc").value;
+	var isp = "isp" + document.getElementById("isp").value;
+	var dialnumvalue = w3gisp_js[locationname][isp]["dial_num"];
+	var apnvalue = w3gisp_js[locationname][isp]["apn"];
+    var username = w3gisp_js[locationname][isp]["username"];
+    var password = w3gisp_js[locationname][isp]["password"];
+	document.getElementById("manualdn").value = dialnumvalue;
+	document.getElementById("manualapn").value = apnvalue;
+	document.getElementById("isppara").innerHTML = "&nbsp;<SPAN id=\"t_dft_dn\">Default Dial Number:<\/SPAN>&nbsp;\"<SPAN id=\"autodn\" style=\"color:#003399;FONT-WEIGHT:bold;\">" + dialnumvalue
+			+ "<\/SPAN>\"&nbsp;&nbsp;<SPAN id=\"t_dft_apn\"> APN:<\/SPAN>&nbsp;\"<SPAN id=\"autoapn\" style=\"color:#003399;FONT-WEIGHT:bold;\">" + apnvalue + "<\/SPAN>\"";
+            
+    document.getElementById("username").value = username;
+    document.getElementById("passwd").value = password;  
+}
+
+//--></SCRIPT>
+
+<style type="text/css">
+<!--
+.STYLE2 {color: #66CC00}
+-->
+</style>
+
+</HEAD>
+<BODY onLoad="doCheck(); setTagStr(document,'wzd_3gtype');LoadHelp('Wzd3GTypeHelpRpm.htm'); resize(this);" onResize="resize(this);">
+<CENTER>
+	<FORM action="Wzd3GTypeRpm.htm" enctype="multipart/form-data" method="get" onSubmit="return doSubmit();">
+		<TABLE id="autoWidth">
+			<TR>
+				<TD class=h1 colspan=2>Quick Setup - 3G</TD>
+			</TR>
+			<TR>
+				<TD class=blue colspan=2></TD>
+			</TR>
+		<TR>
+          <TD height="31" colspan=2 class=info STYLE1> <strong>
+		  		<SCRIPT type="text/javascript">
+					var printfHtml = "";
+					if (wzdMobileParam[11] == 0)
+					{
+				printfHtml += "<B>Start &gt;&gt; Internet Access &gt;&gt; </B><span class=\"STYLE2\">3G</span><B> &gt;&gt; WAN Connection Type &gt;&gt; Wireless &gt;&gt; Finish</B><tr><tr>";
+					}
+					else if (wzdMobileParam[11] == 1)
+					{			
+				printfHtml += "<B>Start &gt;&gt; Internet Access &gt;&gt; </B><span class=\"STYLE2\">3G</span><B> &gt;&gt; Wireless &gt;&gt; Finish</B><tr><tr>";
+					}
+					else if (wzdMobileParam[11] == 2)
+					{
+				printfHtml += "<B>Start &gt;&gt; Internet Access &gt;&gt; WAN Connection Type &gt;&gt; </B><span class=\"STYLE2\">3G</span><B> &gt;&gt; Wireless &gt;&gt; Finish</B><tr><tr>";
+					} 
+					else if (wzdMobileParam[11] == 3)
+					{
+				printfHtml += "";
+					}
+					document.write(printfHtml);			
+				</SCRIPT>	
+		  </strong></TD>
+        </TR>
+		<br/><br/>	
+			</TR>
+			<TR>
+				<TD height="62" colspan=2><SPAN id="t_note_isp_1" style="padding-left:20">If your location or ISP is not listed, or the default Dial number / APN is not the latest one,</SPAN><BR>
+				<SPAN id="t_note_isp_2" style="padding-left:20">please enable</SPAN> <B id="t_note_isp_3">Set the Dial Number and APN manually</B> <SPAN id="t_note_isp_4">and fill in the right ones.</SPAN></TD><tr><tr><tr><tr>
+			</TR>
+			<TR>
+				<TD class=Item id="t_location">Location:</TD>
+				<TD>
+			<SELECT id="selloc" name="selloc" onFocus="doFocus();" onChange="displayISP(); displayPara();">
+<SCRIPT type="text/javascript">
+i = 0;
+for (tag in w3gisp_js)
+{
+    i = parseInt(tag.substring(8,16));
+	document.write('<OPTION value=' + i + ' id="loc' + i + '">' + w3gisp_js[tag]["location_name"] + '<\/OPTION>');
+}
+</SCRIPT>
+					</SELECT>
+				</TD>
+			</TR>
+			<TR>
+				<TD class=Item id="t_isp">Mobile ISP:</TD>
+				<TD>
+					<SELECT id="isp" name="isp" onFocus="doFocus();" onChange="displayPara()">
+					</SELECT>
+				</TD>
+			</TR>
+            <tr>
+                <td>
+                </td>
+                <td>
+                <SPAN id="isppara"></SPAN>
+                </td>
+            </tr>
+            
+			<TR>
+				<TD class=Item>&nbsp;</TD>
+				<TD><INPUT name=manualmobile id=manualmobile type=checkbox value=manualmobile onClick="doCheck()" onFocus="doFocus()" ><SPAN id="t_manual_mobile">Set the Dial Number and APN manually</SPAN></TD>
+			</TR>				
+			<TR>
+				<TD class=Item id="t_dial">Dial Number:</TD>
+				<TD><INPUT name=manualdn id=manualdn type=text class=text size=20 maxlength=118 onFocus="doFocus()" ></TD>
+			</TR>
+			<TR>
+				<TD class=Item id="t_apn">APN:</TD>
+				<TD><INPUT name=manualapn id=manualapn type=text class=text size=20 maxlength=118 onFocus="doFocus()" ></TD>
+			</TR>
+			<TR>
+				<TD class=Item id="t_user">Username:</TD>
+				<TD><INPUT name=username id=username type=text class=text size=20 maxlength=118 onFocus="doFocus()" >&nbsp;<SPAN id="t_optional" name="t_optional">(optional)</SPAN></TD>
+			</TR>
+			<TR>
+				<TD class=Item id="t_pwd">Password:</TD>
+				<TD><INPUT name=passwd id=passwd type=password class=text size=20 maxlength=118 onFocus="doFocus()" >&nbsp;<SPAN id="t_optional" name="t_optional">(optional)</SPAN></TD>
+			</TR>		
+			<TR><TD>&nbsp;</TD></TR>
+			
+			<TR>
+				<TD class=blue colspan=2></TD>
+			</TR>
+			<TR>
+				<TD>&nbsp;</TD>
+				<TD>
+					<INPUT name="dialnum" id="dialnum" type="hidden" value="">
+					<INPUT name="apn" id="apn" type="hidden" value="">
+					<INPUT name="Return" id=Return type="button" class=buttonBig value="Back" onClick="doBack();">
+					&nbsp;&nbsp;
+					<INPUT name="Next" id=Submit type="submit" class=buttonBig value="Next">
+				</TD>
+			</TR>
+		</TABLE>			
+	</FORM>
+</CENTER>
+</BODY>
+</HTML>
+<SCRIPT type="text/javascript">
+document.getElementById("selloc").value = wzdMobileParam[3];
+displayISP();
+document.getElementById("isp").value = wzdMobileParam[4];
+displayPara();
+document.getElementById("username").value = wzdMobileParam[5];
+document.getElementById("passwd").value = wzdMobileParam[6];
+document.getElementById("manualmobile").checked = wzdMobileParam[7] ? true : false;
+if (wzdMobileParam[7])
+{
+	document.getElementById("manualdn").value = wzdMobileParam[8];
+	document.getElementById("manualapn").value = wzdMobileParam[9];
+}
+else
+{
+	document.getElementById("manualdn").disabled = true;
+	document.getElementById("manualapn").disabled = true;
+}
+
+</SCRIPT>

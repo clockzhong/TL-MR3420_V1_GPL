@@ -1,0 +1,221 @@
+
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<SCRIPT type="text/javascript"><!--//
+var wanType = new Array(
+"id=\"t_dyma_ip\" name=\"t_dyma_ip\">Dynamic IP<",	//	WAN_TYPE_DHCP = 0,
+"id=\"t_stat_ip\" name=\"t_stat_ip\">Static IP<",	//	WAN_TYPE_STATIC_IP, 
+"id=\"t_pppoe\" name=\"t_pppoev6\">PPPoeV6<",		//	WAN_TYPE_PPPOEv6, 
+"id=\"t_pppoe\" name=\"t_6to4\">6to4<",				//	WAN_TYPE_6TO4, 
+"id=\"t_pppoe\" name=\"t_link_local\">Link local<",	//	WAN_TYPE_LINK_LOCAL, 
+""	//	WAN_TYPE_END
+);
+function doSubmit()
+{
+	return true;
+}
+function doChange()
+{
+	var t = document.forms[0].wantype.selectedIndex;
+	location.href = "../userRpm/"+wantypeinfo[t*2+2];
+}
+
+function netClick()
+{
+
+}
+function checkIP()
+{
+	
+}
+function doDetect()
+{
+	
+}
+
+function refresh()
+{	
+	
+}
+
+function doSet()
+{
+	if(document.forms[0].manual.checked)
+	{
+		document.forms[0].dnsserver.disabled = false;
+		document.forms[0].dnsserver2.disabled = false;
+	}
+	else
+	{
+		document.forms[0].dnsserver.disabled = true;
+		document.forms[0].dnsserver2.disabled = true;
+	}
+	return true;
+}
+//--></SCRIPT>
+</HEAD>
+<SCRIPT type="text/javascript">
+</SCRIPT>
+<BODY onLoad="resize(this);LoadHelp('NetworkV6CfgHelpRpm.htm')" onResize="resize(this);">
+<FORM action="WanDynamicIpV6CfgRpm.htm" enctype="multipart/form-data" method="get" onSubmit="return doSubmit();">
+  <TABLE id="autoWidth">
+    <TR>
+      <TD class=h1 colspan=2 id = "t_title">WAN</TD>
+    </TR>
+    <TR>
+      <TD class=blue colspan=2></TD>
+    </TR>    
+    <TR>
+      <TD class=Item id = "t_wan_conn_tp">WAN Connection Type:</TD>
+      <TD><SELECT name="wantype" onChange="doChange()">
+	<SCRIPT type="text/javascript">
+	for ( var t=0; t < wantypeinfo[0]; t++)
+	{
+		document.write('<option value="'+wantypeinfo[t*2+1]+'" '+wanType[wantypeinfo[t*2+1]]+'\/option>');
+	}
+	</SCRIPT>
+        </SELECT>       
+    </TR>
+    
+	<TR>
+      <TD colspan=2></TD>
+    </TR>
+    
+	<TR>
+      <TD class=Item id = "t_ip_addr">IPv6 Address:</TD>
+      <TD><div id="ip"></div></TD>
+    </TR>
+    
+	<!--
+	<TR>
+      <TD class=Item id = "t_prefix">IPv6 Prefix:</TD>
+      <TD><div id="prefix"></div></TD>
+    </TR>
+	-->       	
+		<TR>
+			<td> </td>
+			<TD class=emp><INPUT name="RenewIp" type="submit" class="button" value="Renew">
+			&nbsp;&nbsp;
+			<INPUT name="ReleaseIp" type="submit" class="button" value="Release">
+			&nbsp;&nbsp;
+			<!--
+			<SCRIPT type="text/javascript">
+			if(2 == dhcpInf[4])
+			{
+			document.write("<span id = \"t_unpluged_info\" style=\"color:#FF0000\">WAN port is unplugged!<\/span>");
+			}		
+			else if(2 == dhcpInf[4])
+			{
+			document.write("<span id = \"t_info\">Obtaining network parameters...<\/span>");
+			}
+			else
+			{
+			document.write('&nbsp; ');
+			}
+			</SCRIPT>
+			-->
+			</TD>
+		</TR>
+		
+		<TR>
+			<TD colspan=2></TD>
+		</TR>
+		
+		
+		<TR>
+      <TD class=Item id = "t_def_gateway">Default Gateway:</TD>
+      <TD><INPUT name="gw" type="text" class="text" value="" size="40" maxlength="40"></TD>
+    </TR>
+		<TR>
+			<TD class=Item id = "t_mtu_size">MTU Size (in bytes):</TD>
+			<TD><INPUT name="mtu" type="text" class="text" value="" size="4" maxlength="4">
+			<SPAN id = "t_desc">&nbsp;(The default is 1280, do not change unless necessary.)</SPAN></TD>
+		</TR>
+		
+		<TR>
+		<TD class=Item><INPUT name="manual" type="checkbox" value="2" onClick="doSet();"></TD>
+		<TD><SPAN id = "t_use_dns_ser">Use These DNS Servers</SPAN></TD>
+		</TR>
+		
+		<TR>
+			<TD class=Item id = "t_pri_dns">Primary DNS:</TD>
+			<TD><INPUT name="dnsserver" type="text" class="text" value="" size="40" maxlength="40">
+			<SPAN id = "t_option1">&nbsp;(Optional)</SPAN></TD>
+		</TR>
+		
+	<TR>
+		<TD class=Item id = "t_sec_dns">Secondary DNS:</TD>
+		<TD><INPUT name="dnsserver2" type="text" class="text" value="" size="40" maxlength="40">
+		<SPAN id="t_opt2">&nbsp;(Optional)</SPAN></TD>
+	</TR>
+	
+	<TR>
+		<TD class=Item id = "t_domain">Domain:</TD>
+		<TD><INPUT name="domain" type="text" class="text" value="" size="63" maxlength="63">
+		<SPAN id = "t_option1">&nbsp;(Optional)</SPAN></TD>
+	</TR>
+	
+	<TR>
+		<TD class=Item id = "t_domain">Host Name:</TD>
+		<TD><INPUT name="hostname" type="text" class="text" value="" size="63" maxlength="63">
+		<SPAN id = "t_option1">&nbsp;(Optional)</SPAN></TD>
+	</TR>
+	
+	<TR>
+	<TD class=blue colspan=2></TD>
+	</TR>
+	
+	<TR>
+	<TD></TD>
+	<TD><INPUT name="Save" type="submit" class="buttonBig" value="Save"></TD>
+	</TR>
+	
+  </TABLE>
+</FORM>
+</BODY>
+<HEAD>
+<META http-equiv="pragma" content="no-cache">
+</HEAD>
+</HTML>
+<SCRIPT type="text/javascript">
+	document.forms[0].wantype.selectedIndex = dhcpv6Info[0];
+	if(dhcpv6Info[1] == 0) /*DHCPV6_SUCCESS*/
+	{
+		document.forms[0].RenewIp.disabled = true;
+		document.forms[0].ReleaseIp.disabled = false;
+	}
+	if(dhcpv6Info[1] == 1) /*DHCPV6_PROCESS*/
+	{
+		document.forms[0].RenewIp.disabled = false;
+		document.forms[0].ReleaseIp.disabled = false;
+	}
+	if(dhcpv6Info[1] == 2)/*DHCPV6_SUSPEND*/
+	{
+		document.forms[0].RenewIp.disabled = false;
+		document.forms[0].ReleaseIp.disabled = true;
+	}
+	if(dhcpv6Info[1] == 3)/*DHCPV6_STOPPED*/
+	{
+		document.forms[0].RenewIp.disabled = false;
+		document.forms[0].ReleaseIp.disabled = true;
+	}
+	
+	document.getElementById('ip').innerHTML = dhcpv6Info[2];
+	//document.getElementById('prefix').innerHTML = dhcpv6Info[3];
+	document.forms[0].gw.value = dhcpv6Info[4];
+	document.forms[0].mtu.value = dhcpv6Info[5];
+	document.forms[0].manual.checked = (dhcpv6Info[6] == 1) ? true: false;
+	if(dhcpv6Info[6] == 1)
+	{
+		document.forms[0].dnsserver.disabled = false;
+		document.forms[0].dnsserver2.disabled = false;
+	}
+	else
+	{
+		document.forms[0].dnsserver.disabled = true;
+		document.forms[0].dnsserver2.disabled = true;
+	}
+	document.forms[0].dnsserver.value = dhcpv6Info[7];
+	document.forms[0].dnsserver2.value = dhcpv6Info[8];
+	document.forms[0].domain.value = dhcpv6Info[9];
+	document.forms[0].hostname.value = dhcpv6Info[10];
+</SCRIPT>

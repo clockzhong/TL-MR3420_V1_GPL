@@ -1,0 +1,972 @@
+Archive member included because of file (symbol)
+
+common/libcommon.a(cmd_boot.o)
+                              (__u_boot_cmd_reset)
+common/libcommon.a(cmd_bootm.o)
+                              (__u_boot_cmd_bootm)
+common/libcommon.a(cmd_flash.o)
+                              (__u_boot_cmd_erase)
+common/libcommon.a(cmd_load.o)
+                              (__u_boot_cmd_loady)
+common/libcommon.a(cmd_mem.o)
+                              (__u_boot_cmd_cp)
+common/libcommon.a(cmd_mii.o)
+                              (__u_boot_cmd_progmac)
+common/libcommon.a(cmd_net.o)
+                              (__u_boot_cmd_tftpboot)
+common/libcommon.a(cmd_nvedit.o)
+                              (__u_boot_cmd_setenv)
+common/libcommon.a(command.o)
+                              (__u_boot_cmd_question_mark)
+common/libcommon.a(console.o)
+                              common/libcommon.a(cmd_boot.o) (printf)
+common/libcommon.a(devices.o)
+                              common/libcommon.a(console.o) (stdio_names)
+common/libcommon.a(dlmalloc.o)
+                              common/libcommon.a(cmd_bootm.o) (free)
+common/libcommon.a(env_common.o)
+                              common/libcommon.a(cmd_nvedit.o) (env_get_char)
+common/libcommon.a(env_nowhere.o)
+                              common/libcommon.a(env_common.o) (env_ptr)
+common/libcommon.a(flash.o)   common/libcommon.a(cmd_load.o) (addr2info)
+common/libcommon.a(lists.o)   common/libcommon.a(devices.o) (ListCreate)
+common/libcommon.a(xyzModem.o)
+                              common/libcommon.a(cmd_load.o) (xyzModem_stream_open)
+common/libcommon.a(main.o)    common/libcommon.a(cmd_mem.o) (readline)
+common/libcommon.a(crc16.o)   common/libcommon.a(xyzModem.o) (cyg_crc16)
+board/ar7240/ap99/libap99.a(ar7240_flash.o)
+                              common/libcommon.a(cmd_flash.o) (flash_info)
+board/ar7240/ap99/libap99.a(lowlevel_init.o)
+                              cpu/mips/start.o (lowlevel_init)
+board/ar7240/ap99/libap99.a(flash.o)
+                              board/ar7240/ap99/libap99.a(ar7240_flash.o) (flash_get_geom)
+cpu/mips/libmips.a(cpu.o)     common/libcommon.a(cmd_boot.o) (do_reset)
+cpu/mips/libmips.a(interrupts.o)
+                              common/libcommon.a(cmd_bootm.o) (disable_interrupts)
+cpu/mips/libmips.a(cache.o)   cpu/mips/start.o (simple_mips_cache_reset)
+cpu/mips/ar7240/libar7240.a(ar7240_serial.o)
+                              common/libcommon.a(console.o) (serial_tstc)
+lib_mips/libmips.a(board.o)   common/libcommon.a(command.o) (version_string)
+lib_mips/libmips.a(time.o)    lib_mips/libmips.a(board.o) (timer_init)
+lib_mips/libmips.a(mips_linux.o)
+                              common/libcommon.a(cmd_bootm.o) (do_bootm_linux)
+drivers/libdrivers.a(pci.o)   lib_mips/libmips.a(board.o) (pci_init)
+net/libnet.a(net.o)           common/libcommon.a(cmd_net.o) (NetOurRootPath)
+net/libnet.a(tftp.o)          net/libnet.a(net.o) (TftpStart)
+net/libnet.a(bootp.o)         net/libnet.a(net.o) (BootpRequest)
+net/libnet.a(rarp.o)          net/libnet.a(net.o) (RarpRequest)
+net/libnet.a(eth.o)           net/libnet.a(net.o) (eth_get_dev)
+rtc/librtc.a(date.o)          common/libcommon.a(cmd_bootm.o) (to_tm)
+lib_generic/libgeneric.a(crc32.o)
+                              common/libcommon.a(cmd_mem.o) (crc32)
+lib_generic/libgeneric.a(display_options.o)
+                              common/libcommon.a(cmd_bootm.o) (print_size)
+lib_generic/libgeneric.a(string.o)
+                              common/libcommon.a(cmd_flash.o) (strchr)
+lib_generic/libgeneric.a(vsprintf.o)
+                              common/libcommon.a(cmd_boot.o) (simple_strtoul)
+lib_generic/libgeneric.a(zlib.o)
+                              common/libcommon.a(cmd_bootm.o) (inflateEnd)
+lib_generic/libgeneric.a(ctype.o)
+                              lib_generic/libgeneric.a(string.o) (_ctype)
+common/libcommon.a(exports.o)
+                              lib_mips/libmips.a(board.o) (jumptable_init)
+board/ar7240/ap99/libap99.a(ap99.o)
+                              lib_mips/libmips.a(board.o) (ar7240_gpio_sw_led)
+board/ar7240/ap99/libap99.a(ar7240_pci.o)
+                              drivers/libdrivers.a(pci.o) (pci_init_board)
+cpu/mips/ar7240/libar7240.a(ag7240.o)
+                              net/libnet.a(eth.o) (ag7240_enet_initialize)
+cpu/mips/ar7240/libar7240.a(meminit.o)
+                              board/ar7240/ap99/libap99.a(ap99.o) (ar7240_ddr_find_size)
+board/ar7240/ap99/libap99.a(ar7240_s26_phy.o)
+                              cpu/mips/ar7240/libar7240.a(ag7240.o) (athrs26_reg_init)
+
+Allocating common symbols
+Common symbol       size              file
+
+dp_last_size        0x4               common/libcommon.a(cmd_mem.o)
+console_buffer      0x100             common/libcommon.a(main.o)
+NetArpWaitTry       0x4               net/libnet.a(net.o)
+NetArpWaitPacketMAC
+                    0x4               net/libnet.a(net.o)
+flash_info          0x28c             board/ar7240/ap99/libap99.a(ar7240_flash.o)
+NetOurEther         0x6               net/libnet.a(net.o)
+NetOurIP            0x4               net/libnet.a(net.o)
+NetServerIP         0x4               net/libnet.a(net.o)
+monitor_flash_len   0x4               lib_mips/libmips.a(board.o)
+___strtok           0x4               lib_generic/libgeneric.a(string.o)
+NetArpWaitTxPacketSize
+                    0x4               net/libnet.a(net.o)
+NetArpWaitReplyIP   0x4               net/libnet.a(net.o)
+NetRxPackets        0x40              net/libnet.a(net.o)
+NetArpWaitTxPacket  0x4               net/libnet.a(net.o)
+NetArpWaitPacketIP  0x4               net/libnet.a(net.o)
+NetState            0x4               net/libnet.a(net.o)
+BootpTry            0x4               net/libnet.a(bootp.o)
+BootFile            0x80              net/libnet.a(net.o)
+dp_last_addr        0x4               common/libcommon.a(cmd_mem.o)
+his_pad_char        0x1               common/libcommon.a(cmd_load.o)
+os_data_count       0x4               common/libcommon.a(cmd_load.o)
+RarpTry             0x4               net/libnet.a(rarp.o)
+mm_last_size        0x4               common/libcommon.a(cmd_mem.o)
+os_data_init        0x4               common/libcommon.a(cmd_load.o)
+mm_last_addr        0x4               common/libcommon.a(cmd_mem.o)
+NetIPID             0x4               net/libnet.a(net.o)
+send_ptr            0x4               common/libcommon.a(cmd_load.o)
+BootpID             0x4               net/libnet.a(bootp.o)
+NetRxPkt            0x4               net/libnet.a(net.o)
+os_data_header      0x20              common/libcommon.a(cmd_load.o)
+os_data_char        0x4               common/libcommon.a(cmd_load.o)
+ag7240_macs         0x8               cpu/mips/ar7240/libar7240.a(ag7240.o)
+NetArpWaitPacketBuf
+                    0x620             net/libnet.a(net.o)
+his_eol             0x1               common/libcommon.a(cmd_load.o)
+header              0x40              common/libcommon.a(cmd_bootm.o)
+NetRxPktLen         0x4               net/libnet.a(net.o)
+his_quote           0x1               common/libcommon.a(cmd_load.o)
+NetBootFileXferSize
+                    0x4               net/libnet.a(net.o)
+PktBuf              0x6620            net/libnet.a(net.o)
+send_parms          0x14              common/libcommon.a(cmd_load.o)
+his_pad_count       0x4               common/libcommon.a(cmd_load.o)
+NetArpWaitTimerStart
+                    0x4               net/libnet.a(net.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+                0x0000000000000000                . = 0x0
+                0x0000000000000000                . = ALIGN (0x4)
+
+.text           0x000000009f000000    0x1a8a0
+ *(.text)
+ .text          0x000000009f000000     0x3870 cpu/mips/start.o
+                0x000000009f000548                relocate_code
+                0x000000009f000000                _start
+                0x000000009f000604                ar7240_ddr_tap_init
+ .text          0x000000009f003870      0x150 common/libcommon.a(cmd_boot.o)
+                0x000000009f003870                do_go
+ .text          0x000000009f0039c0      0x8a0 common/libcommon.a(cmd_bootm.o)
+                0x000000009f003a98                print_image_hdr
+                0x000000009f003eec                gunzip
+                0x000000009f0040bc                do_bootm
+                0x000000009f0039c0                fake_image_header
+ .text          0x000000009f004260      0xe40 common/libcommon.a(cmd_flash.o)
+                0x000000009f004788                do_flinfo
+                0x000000009f00488c                flash_sect_erase
+                0x000000009f004cc0                do_protect
+                0x000000009f004964                do_flerase
+                0x000000009f004bb0                flash_sect_protect
+ .text          0x000000009f0050a0      0xef0 common/libcommon.a(cmd_load.o)
+                0x000000009f005360                k_data_init
+                0x000000009f00516c                s1_sendpacket
+                0x000000009f0054c4                handle_send_packet
+                0x000000009f0053d0                k_data_restore
+                0x000000009f005258                send_nack
+                0x000000009f005770                do_load_serial_bin
+                0x000000009f005420                k_data_char
+                0x000000009f005134                chk1
+                0x000000009f005380                k_data_save
+                0x000000009f0050f8                ktrans
+                0x000000009f0050a0                send_pad
+                0x000000009f0051cc                send_ack
+ .text          0x000000009f005f90     0x1050 common/libcommon.a(cmd_mem.o)
+                0x000000009f006854                do_mem_base
+                0x000000009f006318                do_mem_mw
+                0x000000009f006ea4                do_mem_crc
+                0x000000009f006e14                do_mem_nm
+                0x000000009f006e5c                do_mem_mm
+                0x000000009f00667c                do_mem_cp
+                0x000000009f006a48                do_mem_mtest
+                0x000000009f00646c                do_mem_cmp
+                0x000000009f005f90                cmd_get_data_size
+                0x000000009f0068c0                do_mem_loop
+                0x000000009f006048                do_mem_md
+ .text          0x000000009f006fe0      0x170 common/libcommon.a(cmd_mii.o)
+                0x000000009f006fe0                do_mac
+ .text          0x000000009f007150      0x420 common/libcommon.a(cmd_net.o)
+                0x000000009f007524                do_rarpb
+                0x000000009f007504                do_tftpb
+                0x000000009f007544                do_bootp
+ .text          0x000000009f007570      0xd40 common/libcommon.a(cmd_nvedit.o)
+                0x000000009f0080ac                getenv
+                0x000000009f007884                _do_setenv
+                0x000000009f008188                getenv_r
+                0x000000009f007614                do_printenv
+                0x000000009f007fe4                setenv
+                0x000000009f008038                do_setenv
+ .text          0x000000009f0082b0      0x3f0 common/libcommon.a(command.o)
+                0x000000009f0082f0                find_cmd
+                0x000000009f008410                do_help
+                0x000000009f0082b0                do_version
+ .text          0x000000009f0086a0      0x890 common/libcommon.a(console.o)
+                0x000000009f008cdc                console_init_r
+                0x000000009f008a2c                printf
+                0x000000009f008bb0                console_assign
+                0x000000009f008934                getc
+                0x000000009f0089f0                puts
+                0x000000009f008ba0                dbg
+                0x000000009f008788                serial_printf
+                0x000000009f008818                ftstc
+                0x000000009f0088d4                fprintf
+                0x000000009f008970                tstc
+                0x000000009f008a84                vprintf
+                0x000000009f008ad0                ctrlc
+                0x000000009f0089ac                putc
+                0x000000009f008b54                disable_ctrlc
+                0x000000009f0087e0                fgetc
+                0x000000009f008b70                had_ctrlc
+                0x000000009f008850                fputc
+                0x000000009f008ccc                console_init_f
+                0x000000009f008b88                clear_ctrlc
+                0x000000009f008894                fputs
+ .text          0x000000009f008f30      0x180 common/libcommon.a(devices.o)
+                0x000000009f008f30                device_register
+                0x000000009f009070                devices_done
+                0x000000009f008f74                devices_init
+ .text          0x000000009f0090b0     0x1490 common/libcommon.a(dlmalloc.o)
+                0x000000009f00948c                malloc
+                0x000000009f00a300                pvalloc
+                0x000000009f00a324                calloc
+                0x000000009f00a450                malloc_usable_size
+                0x000000009f009bd8                realloc
+                0x000000009f0090f0                malloc_trim
+                0x000000009f0090b0                malloc_bin_reloc
+                0x000000009f00a4a8                mallopt
+                0x000000009f00a14c                memalign
+                0x000000009f00a438                cfree
+                0x000000009f00a2e4                valloc
+                0x000000009f009218                free
+ .text          0x000000009f00a540      0x1f0 common/libcommon.a(env_common.o)
+                0x000000009f00a610                env_get_addr
+                0x000000009f00a640                env_relocate
+                0x000000009f00a540                env_crc_update
+                0x000000009f00a5dc                env_get_char_memory
+ .text          0x000000009f00a730       0x40 common/libcommon.a(env_nowhere.o)
+                0x000000009f00a730                env_relocate_spec
+                0x000000009f00a738                env_get_char_spec
+                0x000000009f00a748                env_init
+ .text          0x000000009f00a770      0x410 common/libcommon.a(flash.o)
+                0x000000009f00a898                flash_write
+                0x000000009f00a770                flash_protect
+                0x000000009f00a844                addr2info
+                0x000000009f00aa48                flash_perror
+ .text          0x000000009f00ab80      0x590 common/libcommon.a(lists.o)
+                0x000000009f00ac2c                DisposeHandle
+                0x000000009f00add8                ListDispose
+                0x000000009f00adf0                ListInsertItems
+                0x000000009f00adc8                ListSetAllocationPolicy
+                0x000000009f00b0f8                ListGetItemSize
+                0x000000009f00b0ec                ListGetDataPtr
+                0x000000009f00ab80                NewHandle
+                0x000000009f00ac90                SetHandleSize
+                0x000000009f00b03c                ListInsertItem
+                0x000000009f00ac88                GetHandleSize
+                0x000000009f00b104                ListNumItems
+                0x000000009f00b0ac                ListGetPtrToItem
+                0x000000009f00ad58                ListCreate
+                0x000000009f00b054                ListGetItems
+ .text          0x000000009f00b110      0xd80 common/libcommon.a(xyzModem.o)
+                0x000000009f00bdec                xyzModem_error
+                0x000000009f00bc0c                xyzModem_stream_close
+                0x000000009f00b110                CYGACC_COMM_IF_GETC_TIMEOUT
+                0x000000009f00b1e0                parse_num
+                0x000000009f00bc80                xyzModem_stream_terminate
+                0x000000009f00b6f4                xyzModem_stream_open
+                0x000000009f00b1c4                CYGACC_COMM_IF_PUTC
+                0x000000009f00b8d4                xyzModem_stream_read
+ .text          0x000000009f00be90      0xd90 common/libcommon.a(main.o)
+                0x000000009f00c268                run_command
+                0x000000009f00bfe8                readline
+                0x000000009f00c778                main_loop
+ .text          0x000000009f00cc20       0x60 common/libcommon.a(crc16.o)
+                0x000000009f00cc20                cyg_crc16
+ .text          0x000000009f00cc80      0x740 board/ar7240/ap99/libap99.a(ar7240_flash.o)
+                0x000000009f00d170                flash_erase
+                0x000000009f00cc80                flash_init
+                0x000000009f00cda4                flash_print_info
+                0x000000009f00cecc                write_buff
+ .text          0x000000009f00d3c0      0x2a0 board/ar7240/ap99/libap99.a(lowlevel_init.o)
+                0x000000009f00d3c0                lowlevel_init
+ .text          0x000000009f00d660      0x120 board/ar7240/ap99/libap99.a(flash.o)
+                0x000000009f00d660                flash_get_geom
+ .text          0x000000009f00d780       0xb0 cpu/mips/libmips.a(cpu.o)
+                0x000000009f00d7c8                flush_cache
+                0x000000009f00d780                do_reset
+                0x000000009f00d7f0                write_one_tlb
+ .text          0x000000009f00d830       0x10 cpu/mips/libmips.a(interrupts.o)
+                0x000000009f00d838                disable_interrupts
+                0x000000009f00d830                enable_interrupts
+ .text          0x000000009f00d840      0x330 cpu/mips/libmips.a(cache.o)
+                0x000000009f00daa8                dcache_flush_range
+                0x000000009f00d888                mips_cache_reset
+                0x000000009f00da4c                mips_cache_lock
+                0x000000009f00d840                simple_mips_cache_reset
+                0x000000009f00db24                mips_cache_lock_24k
+                0x000000009f00dad0                mips_cache_flush
+                0x000000009f00da20                dcache_status
+                0x000000009f00da30                dcache_disable
+ .text          0x000000009f00db70      0x280 cpu/mips/ar7240/libar7240.a(ar7240_serial.o)
+                0x000000009f00dd94                serial_setbrg
+                0x000000009f00dcd0                serial_tstc
+                0x000000009f00dd28                serial_putc
+                0x000000009f00db70                ar7240_sys_frequency
+                0x000000009f00dc18                serial_init
+                0x000000009f00dd9c                serial_puts
+                0x000000009f00dce4                serial_getc
+ .text          0x000000009f00ddf0      0x5f0 lib_mips/libmips.a(board.o)
+                0x000000009f00df8c                hang
+                0x000000009f00e0f4                board_init_r
+                0x000000009f00ddf0                sbrk
+                0x000000009f00dfbc                board_init_f
+ .text          0x000000009f00e3e0       0xc0 lib_mips/libmips.a(time.o)
+                0x000000009f00e408                set_timer
+                0x000000009f00e3f0                reset_timer
+                0x000000009f00e488                get_tbclk
+                0x000000009f00e3fc                get_timer
+                0x000000009f00e3e0                timer_init
+                0x000000009f00e410                udelay
+                0x000000009f00e478                get_ticks
+ .text          0x000000009f00e4a0      0x890 lib_mips/libmips.a(mips_linux.o)
+                0x000000009f00e5c8                do_bootm_linux
+ .text          0x000000009f00ed30      0xf30 drivers/libdrivers.a(pci.o)
+                0x000000009f00fa20                pci_cfgfunc_config_device
+                0x000000009f00fa6c                pci_hose_scan_bus
+                0x000000009f00f5b0                pci_hose_phys_to_bus
+                0x000000009f00fa64                pci_cfgfunc_do_nothing
+                0x000000009f00ed48                pci_hose_read_config_dword
+                0x000000009f00ed78                pci_hose_read_config_byte_via_dword
+                0x000000009f00f738                pci_hose_config_device
+                0x000000009f00f958                pci_find_config
+                0x000000009f00ed60                pci_hose_write_config_word
+                0x000000009f00f250                pci_read_config_dword
+                0x000000009f00f670                pci_hose_bus_to_phys
+                0x000000009f00ee60                pci_hose_write_config_byte_via_dword
+                0x000000009f00edec                pci_hose_read_config_word_via_dword
+                0x000000009f00fc40                pci_init
+                0x000000009f00f2e4                pci_read_config_word
+                0x000000009f00fc28                pci_hose_scan
+                0x000000009f00f584                pci_find_device
+                0x000000009f00ef2c                pci_hose_write_config_word_via_dword
+                0x000000009f00f414                pci_find_devices
+                0x000000009f00eff8                pci_register_hose
+                0x000000009f00f030                pci_bus_to_hose
+                0x000000009f00f1c0                pci_write_config_byte
+                0x000000009f00ed6c                pci_hose_write_config_dword
+                0x000000009f00ed3c                pci_hose_read_config_word
+                0x000000009f00f37c                pci_read_config_byte
+                0x000000009f00ed54                pci_hose_write_config_byte
+                0x000000009f00f130                pci_write_config_word
+                0x000000009f00f0a0                pci_write_config_dword
+                0x000000009f00ed30                pci_hose_read_config_byte
+ .text          0x000000009f00fc60     0x1720 net/libnet.a(net.o)
+                0x000000009f010c44                getenv_IPaddr
+                0x000000009f0104b0                NetCksumOk
+                0x000000009f00fea8                NetSetTimeout
+                0x000000009f010528                copy_filename
+                0x000000009f0104f0                NetEthHdrSize
+                0x000000009f0105a4                ip_to_string
+                0x000000009f0100a4                ArpTimeoutCheck
+                0x000000009f010648                NetReceive
+                0x000000009f010ba0                string_to_ip
+                0x000000009f0102e4                NetSendUDPPacket
+                0x000000009f010604                print_IPaddr
+                0x000000009f00fc60                NetSetEther
+                0x000000009f010d8c                NetLoop
+                0x000000009f00fd10                ArpRequest
+                0x000000009f010c80                VLAN_to_string
+                0x000000009f010d48                getenv_VLAN
+                0x000000009f010184                NetCksum
+                0x000000009f0101cc                NetSetIP
+                0x000000009f010ce4                string_to_VLAN
+                0x000000009f00ff24                NetStartAgain
+                0x000000009f00ff0c                NetSetHandler
+                0x000000009f01016c                NetSendPacket
+ .text          0x000000009f011380      0x8f0 net/libnet.a(tftp.o)
+                0x000000009f01197c                TftpStart
+ .text          0x000000009f011c70      0x7e0 net/libnet.a(bootp.o)
+                0x000000009f0120ec                BootpRequest
+ .text          0x000000009f012450      0x230 net/libnet.a(rarp.o)
+                0x000000009f0124b4                RarpRequest
+ .text          0x000000009f012680      0x8b0 net/libnet.a(eth.o)
+                0x000000009f012698                eth_get_dev_by_name
+                0x000000009f012d74                eth_halt
+                0x000000009f012778                eth_register
+                0x000000009f012680                eth_get_dev
+                0x000000009f012bec                eth_try_another
+                0x000000009f012af0                eth_set_enetaddr
+                0x000000009f012874                eth_initialize
+                0x000000009f012e38                eth_set_current
+                0x000000009f012e04                eth_rx
+                0x000000009f01271c                eth_get_dev_index
+                0x000000009f012cc8                eth_init
+                0x000000009f012f00                eth_get_name
+                0x000000009f012dcc                eth_send
+ .text          0x000000009f012f30      0x3d0 rtc/librtc.a(date.o)
+                0x000000009f012f30                GregorianDay
+                0x000000009f01321c                mktime
+                0x000000009f0130a8                to_tm
+ .text          0x000000009f013300      0x190 lib_generic/libgeneric.a(crc32.o)
+                0x000000009f013300                crc32
+ .text          0x000000009f013490      0x150 lib_generic/libgeneric.a(display_options.o)
+                0x000000009f013490                display_options
+                0x000000009f0134d0                print_size
+ .text          0x000000009f0135e0      0x6d0 lib_generic/libgeneric.a(string.o)
+                0x000000009f013b08                memmove
+                0x000000009f013ad8                memcpy
+                0x000000009f013a50                strswab
+                0x000000009f0137c0                strnlen
+                0x000000009f013748                strrchr
+                0x000000009f013664                strcat
+                0x000000009f013c74                memchr
+                0x000000009f013bb4                strstr
+                0x000000009f013924                strtok
+                0x000000009f013b84                memcmp
+                0x000000009f01369c                strncat
+                0x000000009f0137fc                strdup
+                0x000000009f013aac                memset
+                0x000000009f0139e4                strsep
+                0x000000009f0135e0                strnicmp
+                0x000000009f013874                strspn
+                0x000000009f013724                strlen
+                0x000000009f0136e8                strchr
+                0x000000009f0138d4                strpbrk
+ .text          0x000000009f013cb0      0xa00 lib_generic/libgeneric.a(vsprintf.o)
+                0x000000009f0140a0                vsprintf
+                0x000000009f013d98                simple_strtol
+                0x000000009f01462c                panic
+                0x000000009f0145f0                sprintf
+                0x000000009f013cb0                simple_strtoul
+ .text          0x000000009f0146b0     0x2f00 lib_generic/libgeneric.a(zlib.o)
+                0x000000009f015600                inflate
+                0x000000009f014adc                inflateInit2
+                0x000000009f014d18                inflateIncomp
+                0x000000009f0173ec                adler32
+                0x000000009f014928                inflateReset
+                0x000000009f01499c                inflateSync
+                0x000000009f014c84                inflateInit
+                0x000000009f01485c                inflateEnd
+ .text          0x000000009f0175b0       0xb0 common/libcommon.a(exports.o)
+                0x000000009f0175c0                jumptable_init
+                0x000000009f0175b8                get_version
+ .text          0x000000009f017660      0x280 board/ar7240/ap99/libap99.a(ap99.o)
+                0x000000009f017660                ar7240_usb_initial_config
+                0x000000009f0176d0                ar7240_mem_config
+                0x000000009f0176b0                ar7240_gpio_sw_led
+                0x000000009f017834                checkboard
+                0x000000009f017688                ar7240_gpio_config
+                0x000000009f01781c                initdram
+ .text          0x000000009f0178e0      0x550 board/ar7240/ap99/libap99.a(ar7240_pci.o)
+                0x000000009f017afc                pci_init_board
+                0x000000009f017964                plat_dev_init
+ .text          0x000000009f017e30     0x17e0 cpu/mips/ar7240/libar7240.a(ag7240.o)
+                0x000000009f018850                ag7240_enet_initialize
+                0x000000009f019504                ag7240_miiphy_write
+                0x000000009f019370                ag7240_miiphy_read
+                0x000000009f018848                ag7240_mac_addr_loc
+ .text          0x000000009f019610      0x3e0 cpu/mips/ar7240/libar7240.a(meminit.o)
+                0x000000009f019678                ar7240_ddr_initial_config
+                0x000000009f019640                ar7240_ddr_find_size
+                0x000000009f019610                ar7240_ddr_tap_set
+ .text          0x000000009f0199f0      0xeb0 board/ar7240/ap99/libap99.a(ar7240_s26_phy.o)
+                0x000000009f019f88                athrs26_phy_is_up
+                0x000000009f01a830                athrs26_mdc_check
+                0x000000009f01a0d8                athrs26_phy_is_link_alive
+                0x000000009f019e9c                athrs26_powersave_off
+                0x000000009f019d14                s26_wr_phy
+                0x000000009f01a5e8                athrs26_reg_init_lan
+                0x000000009f01a130                athrs26_phy_speed
+                0x000000009f019e48                athrs26_sleep_off
+                0x000000009f0199f0                athrs26_reg_write
+                0x000000009f01a3ac                athrs26_phy_setup
+                0x000000009f019dac                athrs26_reg_init
+                0x000000009f019b80                athrs26_reg_read
+                0x000000009f01a290                athrs26_phy_is_fdx
+                0x000000009f019ef0                s26_rd_phy
+                0x000000009f01a8a0                . = ALIGN (0x4)
+
+.rodata         0x000000009f01a8a0      0x860
+ *(.rodata)
+ .rodata        0x000000009f01a8a0       0xb0 common/libcommon.a(cmd_bootm.o)
+ .rodata        0x000000009f01a950       0x10 common/libcommon.a(cmd_nvedit.o)
+ .rodata        0x000000009f01a960       0x20 common/libcommon.a(xyzModem.o)
+ .rodata        0x000000009f01a980      0x200 common/libcommon.a(crc16.o)
+ .rodata        0x000000009f01ab80       0x30 lib_mips/libmips.a(board.o)
+                0x000000009f01ab80                version_string
+ .rodata        0x000000009f01abb0       0x30 net/libnet.a(net.o)
+ .rodata        0x000000009f01abe0       0x20 net/libnet.a(tftp.o)
+ .rodata        0x000000009f01ac00       0x30 rtc/librtc.a(date.o)
+ .rodata        0x000000009f01ac30      0x400 lib_generic/libgeneric.a(crc32.o)
+ .rodata        0x000000009f01b030       0x80 lib_generic/libgeneric.a(zlib.o)
+ .rodata        0x000000009f01b0b0       0x30 cpu/mips/ar7240/libar7240.a(ag7240.o)
+ .rodata        0x000000009f01b0e0       0x20 cpu/mips/ar7240/libar7240.a(meminit.o)
+
+.reginfo        0x000000009f01b100       0x18
+ .reginfo       0x000000009f01b100       0x18 cpu/mips/start.o
+
+.rodata.str1.4  0x000000009f01b118     0x2d91
+ .rodata.str1.4
+                0x000000009f01b118      0x137 common/libcommon.a(cmd_boot.o)
+                                        0x138 (size before relaxing)
+ *fill*         0x000000009f01b24f        0x1 00
+ .rodata.str1.4
+                0x000000009f01b250      0x490 common/libcommon.a(cmd_bootm.o)
+                                        0x494 (size before relaxing)
+ .rodata.str1.4
+                0x000000009f01b6e0      0x76b common/libcommon.a(cmd_flash.o)
+                                        0x780 (size before relaxing)
+ *fill*         0x000000009f01be4b        0x1 00
+ .rodata.str1.4
+                0x000000009f01be4c      0x258 common/libcommon.a(cmd_load.o)
+                                        0x25c (size before relaxing)
+ .rodata.str1.4
+                0x000000009f01c0a4      0x62d common/libcommon.a(cmd_mem.o)
+                                        0x648 (size before relaxing)
+ *fill*         0x000000009f01c6d1        0x3 00
+ .rodata.str1.4
+                0x000000009f01c6d4      0x110 common/libcommon.a(cmd_mii.o)
+ .rodata.str1.4
+                0x000000009f01c7e4      0x17d common/libcommon.a(cmd_net.o)
+                                        0x198 (size before relaxing)
+ *fill*         0x000000009f01c961        0x3 00
+ .rodata.str1.4
+                0x000000009f01c964      0x261 common/libcommon.a(cmd_nvedit.o)
+                                        0x2c0 (size before relaxing)
+ *fill*         0x000000009f01cbc5        0x3 00
+ .rodata.str1.4
+                0x000000009f01cbc8      0x219 common/libcommon.a(command.o)
+                                        0x21c (size before relaxing)
+ *fill*         0x000000009f01cde1        0x3 00
+ .rodata.str1.4
+                0x000000009f01cde4       0x75 common/libcommon.a(console.o)
+                                         0x7c (size before relaxing)
+ *fill*         0x000000009f01ce59        0x3 00
+ .rodata.str1.4
+                0x000000009f01ce5c       0x2f common/libcommon.a(devices.o)
+                                         0x48 (size before relaxing)
+ *fill*         0x000000009f01ce8b        0x1 00
+ .rodata.str1.4
+                0x000000009f01ce8c       0x1c common/libcommon.a(env_common.o)
+ .rodata.str1.4
+                0x000000009f01cea8      0x11d common/libcommon.a(flash.o)
+                                        0x120 (size before relaxing)
+ *fill*         0x000000009f01cfc5        0x3 00
+ .rodata.str1.4
+                0x000000009f01cfc8       0xf1 common/libcommon.a(xyzModem.o)
+                                         0xf8 (size before relaxing)
+ *fill*         0x000000009f01d0b9        0x3 00
+ .rodata.str1.4
+                0x000000009f01d0bc      0x119 common/libcommon.a(main.o)
+                                        0x128 (size before relaxing)
+ *fill*         0x000000009f01d1d5        0x3 00
+ .rodata.str1.4
+                0x000000009f01d1d8       0x74 board/ar7240/ap99/libap99.a(ar7240_flash.o)
+                                         0x78 (size before relaxing)
+ .rodata.str1.4
+                0x000000009f01d24c       0x13 board/ar7240/ap99/libap99.a(flash.o)
+                                         0x14 (size before relaxing)
+ *fill*         0x000000009f01d25f        0x1 00
+ .rodata.str1.4
+                0x000000009f01d260        0xf cpu/mips/libmips.a(cpu.o)
+                                         0x10 (size before relaxing)
+ *fill*         0x000000009f01d26f        0x1 00
+ .rodata.str1.4
+                0x000000009f01d270       0x5c lib_mips/libmips.a(board.o)
+                                         0x94 (size before relaxing)
+ .rodata.str1.4
+                0x000000009f01d2cc      0x147 lib_mips/libmips.a(mips_linux.o)
+                                        0x14c (size before relaxing)
+ *fill*         0x000000009f01d413        0x1 00
+ .rodata.str1.4
+                0x000000009f01d414       0x7e drivers/libdrivers.a(pci.o)
+                                         0x80 (size before relaxing)
+ *fill*         0x000000009f01d492        0x2 00
+ .rodata.str1.4
+                0x000000009f01d494      0x1ed net/libnet.a(net.o)
+                                        0x21c (size before relaxing)
+ *fill*         0x000000009f01d681        0x3 00
+ .rodata.str1.4
+                0x000000009f01d684      0x1df net/libnet.a(tftp.o)
+                                        0x1e8 (size before relaxing)
+ *fill*         0x000000009f01d863        0x1 00
+ .rodata.str1.4
+                0x000000009f01d864       0x80 net/libnet.a(bootp.o)
+                                         0xb4 (size before relaxing)
+ .rodata.str1.4
+                0x000000009f01d8e4       0x13 net/libnet.a(rarp.o)
+                                         0x48 (size before relaxing)
+ *fill*         0x000000009f01d8f7        0x1 00
+ .rodata.str1.4
+                0x000000009f01d8f8       0x44 net/libnet.a(eth.o)
+                                         0x58 (size before relaxing)
+ .rodata.str1.4
+                0x000000009f01d93c       0x17 lib_generic/libgeneric.a(display_options.o)
+                                         0x20 (size before relaxing)
+ *fill*         0x000000009f01d953        0x1 00
+ .rodata.str1.4
+                0x000000009f01d954       0x57 lib_generic/libgeneric.a(vsprintf.o)
+                                         0x58 (size before relaxing)
+ *fill*         0x000000009f01d9ab        0x1 00
+ .rodata.str1.4
+                0x000000009f01d9ac      0x20d lib_generic/libgeneric.a(zlib.o)
+                                        0x214 (size before relaxing)
+ *fill*         0x000000009f01dbb9        0x3 00
+ .rodata.str1.4
+                0x000000009f01dbbc       0x6f board/ar7240/ap99/libap99.a(ap99.o)
+                                         0x70 (size before relaxing)
+ *fill*         0x000000009f01dc2b        0x1 00
+ .rodata.str1.4
+                0x000000009f01dc2c       0x4e board/ar7240/ap99/libap99.a(ar7240_pci.o)
+                                         0x50 (size before relaxing)
+ *fill*         0x000000009f01dc7a        0x2 00
+ .rodata.str1.4
+                0x000000009f01dc7c      0x18b cpu/mips/ar7240/libar7240.a(ag7240.o)
+                                        0x194 (size before relaxing)
+ *fill*         0x000000009f01de07        0x1 00
+ .rodata.str1.4
+                0x000000009f01de08       0x5a cpu/mips/ar7240/libar7240.a(meminit.o)
+                                         0x5c (size before relaxing)
+ *fill*         0x000000009f01de62        0x2 00
+ .rodata.str1.4
+                0x000000009f01de64       0x45 board/ar7240/ap99/libap99.a(ar7240_s26_phy.o)
+                                         0x58 (size before relaxing)
+                0x000000009f01deac                . = ALIGN (0x4)
+
+.data           0x000000009f01deb0      0x600
+ *(.data)
+ .data          0x000000009f01deb0       0x20 common/libcommon.a(cmd_bootm.o)
+                0x000000009f01decc                load_addr
+                0x000000009f01deb0                linuxFlash
+ .data          0x000000009f01ded0       0x10 common/libcommon.a(cmd_mem.o)
+                0x000000009f01ded0                dp_last_length
+ .data          0x000000009f01dee0       0x10 common/libcommon.a(dlmalloc.o)
+ .data          0x000000009f01def0      0x140 common/libcommon.a(env_common.o)
+                0x000000009f01def0                default_environment
+ .data          0x000000009f01e030       0x10 common/libcommon.a(main.o)
+ .data          0x000000009f01e040       0x10 net/libnet.a(net.o)
+                0x000000009f01e044                NetBcastAddr
+                0x000000009f01e040                NetOurNativeVLAN
+                0x000000009f01e042                NetOurVLAN
+ .data          0x000000009f01e050       0x30 rtc/librtc.a(date.o)
+ .data          0x000000009f01e080      0x280 lib_generic/libgeneric.a(zlib.o)
+ .data          0x000000009f01e300      0x100 lib_generic/libgeneric.a(ctype.o)
+                0x000000009f01e300                _ctype
+ .data          0x000000009f01e400       0x20 cpu/mips/ar7240/libar7240.a(meminit.o)
+                0x000000009f01e408                tap_settings
+                0x000000009f01e400                tap_pattern
+ .data          0x000000009f01e420       0x90 board/ar7240/ap99/libap99.a(ar7240_s26_phy.o)
+
+.data.rel.local
+                0x000000009f01e4b0      0x440
+ .data.rel.local
+                0x000000009f01e4b0        0xc common/libcommon.a(devices.o)
+                0x000000009f01e4b0                stdio_names
+ .data.rel.local
+                0x000000009f01e4bc      0x408 common/libcommon.a(dlmalloc.o)
+ .data.rel.local
+                0x000000009f01e8c4        0x4 common/libcommon.a(env_common.o)
+                0x000000009f01e8c4                env_get_char
+ .data.rel.local
+                0x000000009f01e8c8        0x4 lib_mips/libmips.a(board.o)
+ .data.rel.local
+                0x000000009f01e8cc       0x24 lib_generic/libgeneric.a(zlib.o)
+                0x000000009f01e8ec                zlib_version
+                0x000000009f01e8cc                z_errmsg
+
+.data.rel       0x000000009f01e8f0       0x24
+ .data.rel      0x000000009f01e8f0       0x24 lib_mips/libmips.a(board.o)
+                0x000000009f01e8f0                init_sequence
+                0x000000009f01e914                . = ALIGN (0x4)
+
+.sdata
+ *(.sdata)
+ *(.sdata)
+                0x000000009f01e920                _gp = ALIGN (0x10)
+                0x000000009f01e914                __got_start = .
+
+.got            0x000000009f01e920      0x504
+ *(.got)
+ .got           0x000000009f01e920      0x504 cpu/mips/start.o
+                0x000000009f01e920                _GLOBAL_OFFSET_TABLE_
+                0x000000009f01ee24                __got_end = .
+                0x000000009f01ee24                __u_boot_cmd_start = .
+
+.u_boot_cmd     0x000000009f01ee24      0x288
+ *(.u_boot_cmd)
+ .u_boot_cmd    0x000000009f01ee24       0x30 common/libcommon.a(cmd_boot.o)
+                0x000000009f01ee24                __u_boot_cmd_reset
+                0x000000009f01ee3c                __u_boot_cmd_go
+ .u_boot_cmd    0x000000009f01ee54       0x18 common/libcommon.a(cmd_bootm.o)
+                0x000000009f01ee54                __u_boot_cmd_bootm
+ .u_boot_cmd    0x000000009f01ee6c       0x48 common/libcommon.a(cmd_flash.o)
+                0x000000009f01ee9c                __u_boot_cmd_flinfo
+                0x000000009f01ee6c                __u_boot_cmd_erase
+                0x000000009f01ee84                __u_boot_cmd_protect
+ .u_boot_cmd    0x000000009f01eeb4       0x30 common/libcommon.a(cmd_load.o)
+                0x000000009f01eeb4                __u_boot_cmd_loady
+                0x000000009f01eecc                __u_boot_cmd_loadb
+ .u_boot_cmd    0x000000009f01eee4       0xf0 common/libcommon.a(cmd_mem.o)
+                0x000000009f01ef5c                __u_boot_cmd_md
+                0x000000009f01efbc                __u_boot_cmd_cmp
+                0x000000009f01ef14                __u_boot_cmd_mw
+                0x000000009f01ef74                __u_boot_cmd_loop
+                0x000000009f01ef8c                __u_boot_cmd_base
+                0x000000009f01ef44                __u_boot_cmd_mm
+                0x000000009f01efa4                __u_boot_cmd_crc32
+                0x000000009f01ef2c                __u_boot_cmd_nm
+                0x000000009f01eefc                __u_boot_cmd_mtest
+                0x000000009f01eee4                __u_boot_cmd_cp
+ .u_boot_cmd    0x000000009f01efd4       0x18 common/libcommon.a(cmd_mii.o)
+                0x000000009f01efd4                __u_boot_cmd_progmac
+ .u_boot_cmd    0x000000009f01efec       0x48 common/libcommon.a(cmd_net.o)
+                0x000000009f01f004                __u_boot_cmd_rarpboot
+                0x000000009f01efec                __u_boot_cmd_tftpboot
+                0x000000009f01f01c                __u_boot_cmd_bootp
+ .u_boot_cmd    0x000000009f01f034       0x30 common/libcommon.a(cmd_nvedit.o)
+                0x000000009f01f04c                __u_boot_cmd_printenv
+                0x000000009f01f034                __u_boot_cmd_setenv
+ .u_boot_cmd    0x000000009f01f064       0x48 common/libcommon.a(command.o)
+                0x000000009f01f064                __u_boot_cmd_question_mark
+                0x000000009f01f094                __u_boot_cmd_version
+                0x000000009f01f07c                __u_boot_cmd_help
+                0x000000009f01f0ac                __u_boot_cmd_end = .
+                0x000000009f01f0ac                uboot_end_data = .
+                0x0000000000000144                num_got_entries = ((__got_end - __got_start) >> 0x2)
+                0x000000009f01f0ac                . = ALIGN (0x4)
+
+.sbss
+ *(.sbss)
+
+.bss            0x000000009f01f0b0     0x8a00
+ *(.bss)
+ .bss           0x000000009f01f0b0       0x40 common/libcommon.a(cmd_load.o)
+ .bss           0x000000009f01f0f0       0x10 common/libcommon.a(cmd_mem.o)
+ .bss           0x000000009f01f100       0x10 common/libcommon.a(console.o)
+ .bss           0x000000009f01f110       0x10 common/libcommon.a(devices.o)
+                0x000000009f01f11c                devlist
+                0x000000009f01f110                stdio_devices
+ .bss           0x000000009f01f120       0x40 common/libcommon.a(dlmalloc.o)
+ .bss           0x000000009f01f160       0x10 common/libcommon.a(env_nowhere.o)
+                0x000000009f01f160                env_ptr
+ .bss           0x000000009f01f170      0x440 common/libcommon.a(xyzModem.o)
+ .bss           0x000000009f01f5b0      0x100 common/libcommon.a(main.o)
+ .bss           0x000000009f01f6b0       0x10 lib_mips/libmips.a(board.o)
+ .bss           0x000000009f01f6c0       0x20 lib_mips/libmips.a(mips_linux.o)
+ .bss           0x000000009f01f6e0       0x20 drivers/libdrivers.a(pci.o)
+ .bss           0x000000009f01f700       0xc0 net/libnet.a(net.o)
+                0x000000009f01f778                NetOurNISDomain
+                0x000000009f01f710                NetServerEther
+                0x000000009f01f7a0                NetOurSubnetMask
+                0x000000009f01f716                NetBootFileSize
+                0x000000009f01f758                NetOurHostName
+                0x000000009f01f79c                NetOurGatewayIP
+                0x000000009f01f708                NetEtherNullAddr
+                0x000000009f01f704                NetRestartWrap
+                0x000000009f01f700                NetTxPacket
+                0x000000009f01f798                NetOurDNSIP
+                0x000000009f01f718                NetOurRootPath
+ .bss           0x000000009f01f7c0       0x40 net/libnet.a(tftp.o)
+ .bss           0x000000009f01f800       0x10 net/libnet.a(eth.o)
+ .bss           0x000000009f01f810     0x10b0 lib_generic/libgeneric.a(zlib.o)
+ .bss           0x000000009f0208c0       0xe0 board/ar7240/ap99/libap99.a(ar7240_pci.o)
+ .bss           0x000000009f0209a0       0x10 board/ar7240/ap99/libap99.a(ar7240_s26_phy.o)
+ COMMON         0x000000009f0209b0       0x40 common/libcommon.a(cmd_bootm.o)
+                0x000000009f0209b0                header
+ COMMON         0x000000009f0209f0       0x34 common/libcommon.a(cmd_load.o)
+                0x000000009f0209f0                os_data_header
+                0x000000009f020a10                send_parms
+ COMMON         0x000000009f020a24      0x100 common/libcommon.a(main.o)
+                0x000000009f020a24                console_buffer
+ COMMON         0x000000009f020b24      0x28c board/ar7240/ap99/libap99.a(ar7240_flash.o)
+                0x000000009f020b24                flash_info
+ COMMON         0x000000009f020db0     0x6d00 net/libnet.a(net.o)
+                0x000000009f020db0                NetRxPackets
+                0x000000009f020df0                BootFile
+                0x000000009f020e70                NetArpWaitPacketBuf
+                0x000000009f021490                PktBuf
+                0x000000009f027ab0                uboot_end = .
+
+.scommon        0x000000009f027ab0       0x88
+ .scommon       0x000000009f027ab0       0x1c common/libcommon.a(cmd_load.o)
+                0x000000009f027ab0                his_pad_char
+                0x000000009f027ab4                os_data_count
+                0x000000009f027ab8                os_data_init
+                0x000000009f027abc                send_ptr
+                0x000000009f027ac0                os_data_char
+                0x000000009f027ac4                his_eol
+                0x000000009f027ac5                his_quote
+                0x000000009f027ac8                his_pad_count
+ .scommon       0x000000009f027acc       0x10 common/libcommon.a(cmd_mem.o)
+                0x000000009f027acc                dp_last_size
+                0x000000009f027ad0                dp_last_addr
+                0x000000009f027ad4                mm_last_size
+                0x000000009f027ad8                mm_last_addr
+ .scommon       0x000000009f027adc        0x4 lib_mips/libmips.a(board.o)
+                0x000000009f027adc                monitor_flash_len
+ .scommon       0x000000009f027ae0       0x40 net/libnet.a(net.o)
+                0x000000009f027ae0                NetArpWaitTry
+                0x000000009f027ae4                NetArpWaitPacketMAC
+                0x000000009f027ae8                NetOurEther
+                0x000000009f027af0                NetOurIP
+                0x000000009f027af4                NetServerIP
+                0x000000009f027af8                NetArpWaitTxPacketSize
+                0x000000009f027afc                NetArpWaitReplyIP
+                0x000000009f027b00                NetArpWaitTxPacket
+                0x000000009f027b04                NetArpWaitPacketIP
+                0x000000009f027b08                NetState
+                0x000000009f027b0c                NetIPID
+                0x000000009f027b10                NetRxPkt
+                0x000000009f027b14                NetRxPktLen
+                0x000000009f027b18                NetBootFileXferSize
+                0x000000009f027b1c                NetArpWaitTimerStart
+ .scommon       0x000000009f027b20        0x8 net/libnet.a(bootp.o)
+                0x000000009f027b20                BootpTry
+                0x000000009f027b24                BootpID
+ .scommon       0x000000009f027b28        0x4 net/libnet.a(rarp.o)
+                0x000000009f027b28                RarpTry
+ .scommon       0x000000009f027b2c        0x4 lib_generic/libgeneric.a(string.o)
+                0x000000009f027b2c                ___strtok
+ .scommon       0x000000009f027b30        0x8 cpu/mips/ar7240/libar7240.a(ag7240.o)
+                0x000000009f027b30                ag7240_macs
+
+.rel.dyn
+Address of section .text set to 0x9f000000
+LOAD cpu/mips/start.o
+START GROUP
+LOAD lib_generic/libgeneric.a
+LOAD common/libcommon.a
+LOAD board/ar7240/ap99/libap99.a
+LOAD cpu/mips/libmips.a
+LOAD cpu/mips/ar7240/libar7240.a
+LOAD lib_mips/libmips.a
+LOAD fs/cramfs/libcramfs.a
+LOAD fs/fat/libfat.a
+LOAD fs/fdos/libfdos.a
+LOAD fs/jffs2/libjffs2.a
+LOAD fs/reiserfs/libreiserfs.a
+LOAD fs/ext2/libext2fs.a
+LOAD disk/libdisk.a
+LOAD dtt/libdtt.a
+LOAD drivers/libdrivers.a
+LOAD drivers/sk98lin/libsk98lin.a
+LOAD net/libnet.a
+LOAD rtc/librtc.a
+LOAD post/libpost.a
+LOAD post/cpu/libcpu.a
+END GROUP
+LOAD /home/project/svn/TL-MR3420_V1_GPL/build/gcc-3.4.4-2.16.1/build_mips/bin/../lib/gcc/mips-linux-uclibc/3.4.4/libgcc.a
+OUTPUT(u-boot elf32-tradbigmips)
+
+.pdr            0x0000000000000000     0x2b00
+ .pdr           0x0000000000000000       0x40 cpu/mips/start.o
+ .pdr           0x0000000000000040       0x20 common/libcommon.a(cmd_boot.o)
+ .pdr           0x0000000000000060       0xc0 common/libcommon.a(cmd_bootm.o)
+ .pdr           0x0000000000000120      0x100 common/libcommon.a(cmd_flash.o)
+ .pdr           0x0000000000000220      0x1e0 common/libcommon.a(cmd_load.o)
+ .pdr           0x0000000000000400      0x180 common/libcommon.a(cmd_mem.o)
+ .pdr           0x0000000000000580       0x20 common/libcommon.a(cmd_mii.o)
+ .pdr           0x00000000000005a0       0x80 common/libcommon.a(cmd_net.o)
+ .pdr           0x0000000000000620       0xe0 common/libcommon.a(cmd_nvedit.o)
+ .pdr           0x0000000000000700       0x60 common/libcommon.a(command.o)
+ .pdr           0x0000000000000760      0x2a0 common/libcommon.a(console.o)
+ .pdr           0x0000000000000a00       0x60 common/libcommon.a(devices.o)
+ .pdr           0x0000000000000a60      0x180 common/libcommon.a(dlmalloc.o)
+ .pdr           0x0000000000000be0       0xa0 common/libcommon.a(env_common.o)
+ .pdr           0x0000000000000c80       0x60 common/libcommon.a(env_nowhere.o)
+ .pdr           0x0000000000000ce0       0x80 common/libcommon.a(flash.o)
+ .pdr           0x0000000000000d60      0x1c0 common/libcommon.a(lists.o)
+ .pdr           0x0000000000000f20      0x140 common/libcommon.a(xyzModem.o)
+ .pdr           0x0000000000001060       0x80 common/libcommon.a(main.o)
+ .pdr           0x00000000000010e0       0x20 common/libcommon.a(crc16.o)
+ .pdr           0x0000000000001100       0xc0 board/ar7240/ap99/libap99.a(ar7240_flash.o)
+ .pdr           0x00000000000011c0       0x20 board/ar7240/ap99/libap99.a(flash.o)
+ .pdr           0x00000000000011e0       0x60 cpu/mips/libmips.a(cpu.o)
+ .pdr           0x0000000000001240       0x40 cpu/mips/libmips.a(interrupts.o)
+ .pdr           0x0000000000001280      0x100 cpu/mips/libmips.a(cache.o)
+ .pdr           0x0000000000001380       0xe0 cpu/mips/ar7240/libar7240.a(ar7240_serial.o)
+ .pdr           0x0000000000001460       0xe0 lib_mips/libmips.a(board.o)
+ .pdr           0x0000000000001540       0xe0 lib_mips/libmips.a(time.o)
+ .pdr           0x0000000000001620       0x40 lib_mips/libmips.a(mips_linux.o)
+ .pdr           0x0000000000001660      0x3a0 drivers/libdrivers.a(pci.o)
+ .pdr           0x0000000000001a00      0x300 net/libnet.a(net.o)
+ .pdr           0x0000000000001d00       0x80 net/libnet.a(tftp.o)
+ .pdr           0x0000000000001d80       0x80 net/libnet.a(bootp.o)
+ .pdr           0x0000000000001e00       0x60 net/libnet.a(rarp.o)
+ .pdr           0x0000000000001e60      0x1a0 net/libnet.a(eth.o)
+ .pdr           0x0000000000002000       0x60 rtc/librtc.a(date.o)
+ .pdr           0x0000000000002060       0x20 lib_generic/libgeneric.a(crc32.o)
+ .pdr           0x0000000000002080       0x40 lib_generic/libgeneric.a(display_options.o)
+ .pdr           0x00000000000020c0      0x260 lib_generic/libgeneric.a(string.o)
+ .pdr           0x0000000000002320       0xe0 lib_generic/libgeneric.a(vsprintf.o)
+ .pdr           0x0000000000002400      0x200 lib_generic/libgeneric.a(zlib.o)
+ .pdr           0x0000000000002600       0x60 common/libcommon.a(exports.o)
+ .pdr           0x0000000000002660       0xc0 board/ar7240/ap99/libap99.a(ap99.o)
+ .pdr           0x0000000000002720       0xa0 board/ar7240/ap99/libap99.a(ar7240_pci.o)
+ .pdr           0x00000000000027c0      0x120 cpu/mips/ar7240/libar7240.a(ag7240.o)
+ .pdr           0x00000000000028e0       0x60 cpu/mips/ar7240/libar7240.a(meminit.o)
+ .pdr           0x0000000000002940      0x1c0 board/ar7240/ap99/libap99.a(ar7240_s26_phy.o)
+
+.stab           0x0000000000000000     0xab60
+ .stab          0x0000000000000000     0xa23c cpu/mips/start.o
+ .stab          0x000000000000a23c      0x30c board/ar7240/ap99/libap99.a(lowlevel_init.o)
+                                        0x318 (size before relaxing)
+ .stab          0x000000000000a548      0x618 cpu/mips/libmips.a(cache.o)
+                                        0x624 (size before relaxing)
+
+.stabstr        0x0000000000000000      0x1d4
+ .stabstr       0x0000000000000000      0x1d4 cpu/mips/start.o
+
+.mdebug.abi32   0x0000000000000000        0x0
+
+.comment        0x0000000000000000      0x33c
+ .comment       0x0000000000000000       0x12 common/libcommon.a(cmd_boot.o)
+ .comment       0x0000000000000012       0x12 common/libcommon.a(cmd_bootm.o)
+ .comment       0x0000000000000024       0x12 common/libcommon.a(cmd_flash.o)
+ .comment       0x0000000000000036       0x12 common/libcommon.a(cmd_load.o)
+ .comment       0x0000000000000048       0x12 common/libcommon.a(cmd_mem.o)
+ .comment       0x000000000000005a       0x12 common/libcommon.a(cmd_mii.o)
+ .comment       0x000000000000006c       0x12 common/libcommon.a(cmd_net.o)
+ .comment       0x000000000000007e       0x12 common/libcommon.a(cmd_nvedit.o)
+ .comment       0x0000000000000090       0x12 common/libcommon.a(command.o)
+ .comment       0x00000000000000a2       0x12 common/libcommon.a(console.o)
+ .comment       0x00000000000000b4       0x12 common/libcommon.a(devices.o)
+ .comment       0x00000000000000c6       0x12 common/libcommon.a(dlmalloc.o)
+ .comment       0x00000000000000d8       0x12 common/libcommon.a(env_common.o)
+ .comment       0x00000000000000ea       0x12 common/libcommon.a(env_nowhere.o)
+ .comment       0x00000000000000fc       0x12 common/libcommon.a(flash.o)
+ .comment       0x000000000000010e       0x12 common/libcommon.a(lists.o)
+ .comment       0x0000000000000120       0x12 common/libcommon.a(xyzModem.o)
+ .comment       0x0000000000000132       0x12 common/libcommon.a(main.o)
+ .comment       0x0000000000000144       0x12 common/libcommon.a(crc16.o)
+ .comment       0x0000000000000156       0x12 board/ar7240/ap99/libap99.a(ar7240_flash.o)
+ .comment       0x0000000000000168       0x12 board/ar7240/ap99/libap99.a(flash.o)
+ .comment       0x000000000000017a       0x12 cpu/mips/libmips.a(cpu.o)
+ .comment       0x000000000000018c       0x12 cpu/mips/libmips.a(interrupts.o)
+ .comment       0x000000000000019e       0x12 cpu/mips/ar7240/libar7240.a(ar7240_serial.o)
+ .comment       0x00000000000001b0       0x12 lib_mips/libmips.a(board.o)
+ .comment       0x00000000000001c2       0x12 lib_mips/libmips.a(time.o)
+ .comment       0x00000000000001d4       0x12 lib_mips/libmips.a(mips_linux.o)
+ .comment       0x00000000000001e6       0x12 drivers/libdrivers.a(pci.o)
+ .comment       0x00000000000001f8       0x12 net/libnet.a(net.o)
+ .comment       0x000000000000020a       0x12 net/libnet.a(tftp.o)
+ .comment       0x000000000000021c       0x12 net/libnet.a(bootp.o)
+ .comment       0x000000000000022e       0x12 net/libnet.a(rarp.o)
+ .comment       0x0000000000000240       0x12 net/libnet.a(eth.o)
+ .comment       0x0000000000000252       0x12 rtc/librtc.a(date.o)
+ .comment       0x0000000000000264       0x12 lib_generic/libgeneric.a(crc32.o)
+ .comment       0x0000000000000276       0x12 lib_generic/libgeneric.a(display_options.o)
+ .comment       0x0000000000000288       0x12 lib_generic/libgeneric.a(string.o)
+ .comment       0x000000000000029a       0x12 lib_generic/libgeneric.a(vsprintf.o)
+ .comment       0x00000000000002ac       0x12 lib_generic/libgeneric.a(zlib.o)
+ .comment       0x00000000000002be       0x12 lib_generic/libgeneric.a(ctype.o)
+ .comment       0x00000000000002d0       0x12 common/libcommon.a(exports.o)
+ .comment       0x00000000000002e2       0x12 board/ar7240/ap99/libap99.a(ap99.o)
+ .comment       0x00000000000002f4       0x12 board/ar7240/ap99/libap99.a(ar7240_pci.o)
+ .comment       0x0000000000000306       0x12 cpu/mips/ar7240/libar7240.a(ag7240.o)
+ .comment       0x0000000000000318       0x12 cpu/mips/ar7240/libar7240.a(meminit.o)
+ .comment       0x000000000000032a       0x12 board/ar7240/ap99/libap99.a(ar7240_s26_phy.o)

@@ -1,0 +1,87 @@
+#!/bin/bash
+
+RPM_DIR=$INSTALL_ROOT_FOR_BOARD/web/userRpm
+HELP_DIR=$INSTALL_ROOT_FOR_BOARD/web/help
+KMOD_DIR=$INSTALL_ROOT_FOR_BOARD/lib/modules/2.6.15/kernel
+MOD_NAME='cls_basic cls_fw sch_htb sch_prio sch_sfq iptable_nat ipt_conntrack ipt_iprange ipt_mac ipt_MARK ipt_MASQUERADE ipt_multiurl ipt_string ipt_TCPMSS ipt_time ipt_TRIGGER ip_conntrack_ftp ip_conntrack_h323 ip_conntrack_pptp ip_conntrack_tftp ip_nat_ftp ip_nat_h323 ip_nat ip_nat_pptp ip_nat_tftp statistics ts_kmp pppol2tp pptp harmony wlan_warn ip_conntrack_rtsp ip_nat_rtsp'
+
+rm -rf $RPM_DIR/AccessCtrl*
+rm -rf $HELP_DIR/AccessCtrl*
+
+rm -rf $RPM_DIR/Parent*
+rm -rf $HELP_DIR/Parent*
+
+rm -rf $RPM_DIR/LanArp*
+rm -rf $HELP_DIR/LanArp*
+
+rm -rf $RPM_DIR/AdvScrRpm.htm
+rm -rf $RPM_DIR/MiscShowRpm.htm
+rm -rf $HELP_DIR/Misc*
+
+# Remove by TanZY for WA730RE
+#rm -rf $RPM_DIR/Wzd*
+#rm -rf $HELP_DIR/Wzd*
+
+rm -rf $RPM_DIR/VirtualServer*
+rm -rf $HELP_DIR/VirtualServerHelpRpm.htm
+
+rm -rf $RPM_DIR/UpnpCfgRpm.htm
+rm -rf $HELP_DIR/UpnpCfgHelpRpm.htm
+
+rm -rf $RPM_DIR/DMZRpm.htm
+rm -rf $HELP_DIR/DMZHelpRpm.htm
+
+rm -rf $RPM_DIR/QoS*
+rm -rf $HELP_DIR/QoS*
+
+rm -rf $RPM_DIR/PPP*
+rm -rf $HELP_DIR/PPP*
+
+rm -rf $RPM_DIR/PPTPCfgRpm.htm
+rm -rf $HELP_DIR/PptpCfgHelpRpm.htm
+
+rm -rf $RPM_DIR/Wan*
+rm -rf $HELP_DIR/Wan*
+
+rm -rf $RPM_DIR/StaticRoute*
+rm -rf $HELP_DIR/StaticRoute*
+
+rm -rf $RPM_DIR/SysRouteTable*
+rm -rf $HELP_DIR/SysRouteTable*
+
+rm -rf $RPM_DIR/SpecialApp*
+rm -rf $HELP_DIR/SpecialApp*
+
+rm -rf $RPM_DIR/L2TPCfgRpm.htm
+rm -rf $HELP_DIR/L2tpCfgHelpRpm.htm
+
+rm -rf $RPM_DIR/DynDdnsRpm.htm
+rm -rf $HELP_DIR/DynDdnsHelpRpm.htm
+
+rm -rf $RPM_DIR/NoipDdnsRpm.htm
+rm -rf $HELP_DIR/NoipDdnsHelpRpm.htm
+
+rm -rf $RPM_DIR/MacCloneCfgRpm.htm
+rm -rf $HELP_DIR/MacCloneCfgHelpRpm.htm
+
+rm -rf $RPM_DIR/SystemStatisticRpm.htm
+rm -rf $HELP_DIR/SystemStatisticHelpRpm.htm
+
+rm -rf $RPM_DIR/BasicSecurityRpm.htm
+rm -rf $RPM_DIR/BPACfgRpm.htm
+rm -rf $RPM_DIR/LocalManageControlRpm.htm
+rm -rf $RPM_DIR/ManageControlRpm.htm
+
+rm -rf $HELP_DIR/BpaCfgHelpRpm.htm
+rm -rf $HELP_DIR/DdnsAddComexeHelpRpm.htm
+rm -rf $HELP_DIR/BasicSecurityHelpRpm.htm
+rm -rf $HELP_DIR/LocalManageControlHelpRpm.htm
+rm -rf $HELP_DIR/ManageControlHelpRpm.htm
+
+rm -rf $RPM_DIR/DateTimeCfgRpm.htm
+rm -rf $HELP_DIR/DateTimeCfgHelpRpm.htm
+
+for i in $MOD_NAME
+do
+	rm -rf $KMOD_DIR/$i.ko
+done
