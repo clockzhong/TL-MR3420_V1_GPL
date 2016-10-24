@@ -5,3 +5,26 @@ Then:
 cd TL-MR3420_V1_GPL/build
 make BOARD_TYPE=ap99 linux_build_all
 make BOARD_TYPE=ap99 mr3420v1_en
+
+
+But during the 
+make BOARD_TYPE=ap99 linux_build_all
+I got the following building errors in my Ubuntu16.04 LTS environment. It should be some packages dependency mistakes in the official release or my Ubuntu environment.
+
+mips-linux-uclibc-gcc -O -fomit-frame-pointer -pipe -Wall -DTP_WEB_LOG -DHAVE_PATHS_H  -DHAVE_MMAP -I../include -I ../../../web_server/msglogd/ -DFIXED_OUR_INET_IP -DCHAPMS=1 -DHAS_SHADOW -DHAVE_CRYPT_H=1 -DUSE_CRYPT=1 -DINCLUDE_PPPOL2TP -DINCLUDE_PPTP_PLUGIN -DMAXOCTETS -L ../../../web_server/msglogd/ -lmsglog -o pppd  main.o magic.o fsm.o lcp.o ipcp.o upap.o chap-new.o md5.o ccp.o ecp.o auth.o options.o demand.o utils.o sys-linux.o tty.o eap.o chap-md5.o pppol2tp.o md4.o chap_ms.o sha1.o pppcrypt.o discovery.o if.o common.o debug.o plugin.o pptp/pptp.o pptp/pptp_callmgr.o pptp/pptp_ctrl.o pptp/pptp_quirks.o pptp/util.o pptp/vector.o pptp/orckit_quirks.o pptp/dirutil.o 
+auth.o: In function `check_passwd':
+auth.c:(.text+0x2c5c): undefined reference to `crypt'
+auth.o: In function `plogin':
+auth.c:(.text+0x3058): undefined reference to `crypt'
+pppcrypt.o: In function `DesSetkey':
+pppcrypt.c:(.text+0x2c8): undefined reference to `setkey'
+pppcrypt.o: In function `DesEncrypt':
+pppcrypt.c:(.text+0x368): undefined reference to `encrypt'
+pppcrypt.o: In function `DesDecrypt':
+pppcrypt.c:(.text+0x438): undefined reference to `encrypt'
+collect2: ld returned 1 exit status
+Makefile:270: recipe for target 'pppd' failed
+make[1]: *** [pppd] Error 1
+make[1]: Leaving directory '/home/clock/Downloads/temp/temp/TL-MR3420_V1_GPL/apps/ppp-2.4.3/pppd'
+Makefile:246: recipe for target 'pppoe' failed
+make: *** [pppoe] Error 2
