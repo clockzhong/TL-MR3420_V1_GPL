@@ -1,0 +1,7 @@
+Install the following package:
+sudo apt install exuberant-ctags
+
+Then:
+cd TL-MR3420_V1_GPL/build
+make BOARD_TYPE=ap99 linux_build_all
+make BOARD_TYPE=ap99 mr3420v1_en
